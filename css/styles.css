@@ -60,12 +60,14 @@
 /* ------------------------------------------------------ */
 html {
   box-sizing: border-box;
+  /* overflow: hidden; */
 }
 
 *,
 ::before,
 ::after {
   box-sizing: inherit;
+  /* overflow: inherit; */
 }
 
 /* START "Обнуление" */
@@ -101,10 +103,6 @@ body {
   letter-spacing: 0.03em;
 
   background-color: var(--color-white);
-}
-
-body . {
-  display: flex;
 }
 
 .skip-to-content > .skip-link {
@@ -221,7 +219,7 @@ body . {
     0 2px 2px rgba(0, 0, 0, 0.12); /* Тень Главной кнопки (статическая) shadow-middle */
 }
 
-/* Вторичная кнопка: Фон - серый #f5f4fa,  цвет - темный #212121, + тень динамическая по ховеру */
+/* Вторичная кнопка: Фон - серый #f5f4fa,  цвет - темный #212121, + тень динамическая по наведению */
 .btn--secondary {
   color: var(--color-text-primary);
   background-color: var(--color-bg-secondary); /* Rectangle 10 */
@@ -282,7 +280,7 @@ body . {
   line-height: 1.19; /* 31px = box */
 }
 
-.webstudio {
+.web-studio {
   min-height: 26px;
 
   transition: color var(--time) var(--cubic);
@@ -428,7 +426,7 @@ body . {
 /* START "СКРЫТЫЕ КЛАССЫ"*/
 body .sr-only {
   /* В классе "screen readers only" (.sr-only) Для Читалок удалить visibility: hidden; -> и задать элементу (скрытым заголовкам секций) в тег tabindex="0"
-  Тогда контент не выделяется табом.  Контент видно, выделяется мышкой. Блок в потоке. */
+  Тогда контент не выделяется клавишей <таб>.  Контент видно, выделяется мышкой. Блок в потоке. */
 
   /* Do not size content to 0 pixels if you want the content to be read by a screen reader.
   * If content styled with font-size:0px or line-height:0, then the elements would still take horizontal space on the screen.
@@ -441,7 +439,7 @@ body .sr-only {
   padding: 0; /* small importance */ /* Нет внутренних отступов. Не влияет. */
   margin: -1px; /* small importance */ /* Нет внешних отступов. Не влияет. */
 
-  overflow: hidden; /* Useful */ /* Обрезает контент если Блочный контейнер имеет высоту\максвысоту, или white-space: nowrap. */
+  overflow: hidden; /* Useful */ /* Обрезает контент если Блочный контейнер имеет высоту|макс. высоту, или white-space: nowrap. */
   clip-path: inset(100%); /* Useful */ /* Вырезает контент. Блок в потоке. */
   clip: rect(1px 1px 1px 1px); /* Useful */ /* Старая IE6, IE7, вырезает контент. Блок в потоке. */
   clip: rect(1px, 1px, 1px, 1px); /* Useful */ /* Старая, вырезает контент. Блок в потоке. */
@@ -450,7 +448,7 @@ body .sr-only {
   line-height: 1px; /* Useful */ /* Уменьшает текстовый контент, можно выделить с другими элементами. Блок меньше, но в потоке. */
   white-space: nowrap; /* small importance */ /* Nowrap - элементы в одной строке не переходят на новую строку. Влияет на overflow. */
 
-  pointer-events: none; /* MUST HAVE */ /* Не выделяется мышкой. Контент видно, выделяется табом. Блок в потоке. */
+  pointer-events: none; /* MUST HAVE */ /* Не выделяется мышкой. Контент видно, выделяется клавишей <tab>. Блок в потоке. */
 
   border: 0; /* small importance */ /* Нет границы. Сжимает внутрь на 1px. Не влияет. */
   outline: none; /* small importance */ /* Нет рамки вокруг. Не влияет. */
@@ -461,7 +459,7 @@ body .sr-only {
 /* "Модальное окно скрыто и недоступно для скрин-ридеров до момента нажатия на кнопку-героя" */
 body .is-hidden {
   /* В классе "screen readers only" (.sr-only) Для Читалок удалить visibility: hidden; -> и задать элементу (скрытым заголовкам секций) в тег tabindex="0"
-  Тогда контент не выделяется табом.  Контент видно, выделяется мышкой. Блок в потоке. */
+  Тогда контент не выделяется клавишей <tab>.  Контент видно, выделяется мышкой. Блок в потоке. */
 
   /* Do not size content to 0 pixels if you want the content to be read by a screen reader.
   * If content styled with font-size:0px or line-height:0, then the elements would still take horizontal space on the screen.
@@ -473,7 +471,7 @@ body .is-hidden {
   padding: 0; /* small importance */ /* Нет внутренних отступов. Не влияет. */
   margin: -1px; /* small importance */ /* Нет внешних отступов. Не влияет. */
 
-  overflow: hidden; /* Useful */ /* Обрезает контент если Блочный контейнер имеет высоту\максвысоту, или white-space: nowrap. */
+  overflow: hidden; /* Useful */ /* Обрезает контент если Блочный контейнер имеет высоту|макс. высоту, или white-space: nowrap. */
   clip-path: inset(100%); /* Useful */ /* Вырезает контент. Блок в потоке. */
   clip: rect(1px 1px 1px 1px); /* Useful */ /* Старая IE6, IE7, вырезает контент. Блок в потоке. */
   clip: rect(1px, 1px, 1px, 1px); /* Useful */ /* Старая, вырезает контент. Блок в потоке. */
@@ -482,8 +480,8 @@ body .is-hidden {
   line-height: 1px; /* Useful */ /* Уменьшает текстовый контент, можно выделить с другими элементами. Блок меньше, но в потоке. */
   white-space: nowrap; /* small importance */ /* Nowrap - элементы в одной строке не переходят на новую строку. Влияет на overflow. */
 
-  pointer-events: none; /* MUST HAVE */ /* Не выделяется мышкой. Контент видно, выделяется табом. Блок в потоке. */
-  visibility: hidden; /* MUST HAVE */ /* НЕ ДОСТУПЕН ДЛЯ ЧИТАЛОК. Не выделяется ни мышкой, ни табом. Контент прозрачный. Блок в потоке. */
+  pointer-events: none; /* MUST HAVE */ /* Не выделяется мышкой. Контент видно, выделяется <tab>. Блок в потоке. */
+  visibility: hidden; /* MUST HAVE */ /* НЕ ДОСТУПЕН ДЛЯ ЧИТАЛОК. Не выделяется ни мышкой, ни <tab>. Контент прозрачный. Блок в потоке. */
 
   border: 0; /* small importance */ /* Нет границы. Сжимает внутрь на 1px. Не влияет. */
   outline: none; /* small importance */ /* Нет рамки вокруг. Не влияет. */
@@ -502,9 +500,9 @@ body .is-hidden {
 .links:hover,
 .links:focus,
 .links:active,
-.logo:hover .webstudio,
-.logo:focus .webstudio,
-.logo:active .webstudio {
+.logo:hover .web-studio,
+.logo:focus .web-studio,
+.logo:active .web-studio {
   color: var(--color-accent); /* Акцент #2196F3 */
 }
 /* END Подсветка ссылок */
@@ -512,13 +510,13 @@ body .is-hidden {
 /* || ---------------- END "ШАПКА САЙТА" ---------------- */
 /* ------------------------------------------------------ */
 
+/* main {} */
+
 /* ------------------------------------------------------ */
 /* || ------------------ START "ГЕРОЙ" ------------------ */
 /* ------------------------------------------------------ */
 main > .hero {
   max-width: 1600px;
-  padding-top: 200px;
-  padding-bottom: 200px;
   margin-right: auto;
   margin-left: auto;
 
@@ -533,22 +531,19 @@ main > .hero {
 }
 
 .hero-container {
-  min-height: 200px;
-}
-
-.hero-title-br {
-  display: block;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  min-height: 12.5rem;
+  /* padding-top: calc((600px - 200px - ((94.08px - 0.08px) * 2)) / 2); = 106px */
+  padding-top: 6.625rem;
+  padding-bottom: 6.625rem;
 }
 
 /* Эффективные решения для вашего бизнеса */
 .hero-container > .hero-title {
-  min-height: 120px;
+  min-height: 7.5rem;
 
   margin-bottom: var(--uni-margin);
 
-  font-size: clamp(1.2em, 5.6vw, 44px);
+  font-size: clamp(1.2em, 5.6vw, 2.75rem);
   font-weight: 900; /* body: Roboto; браузера: font-style: normal; */
   line-height: 1.36; /* 60px */
   color: var(--color-white);
@@ -559,18 +554,18 @@ main > .hero {
 /* START Hero-Button */
 
 /* Заказать услугу h30px */
-.hero-container .hero-btn {
-  min-width: 200px;
-  max-width: 300px;
-  min-height: 50px;
+.hero-container > .hero-btn {
+  min-width: 12.5rem;
+  max-width: 18.75rem;
+  min-height: 3.125rem;
 
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.88; /* 30px = box */
   letter-spacing: 0.06em; /* from btn--primary - background-color: #2196f3; */
 
-  border-radius: 4px; /* from btn--primary color: #ffffff; */
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15); /* Тень для Кнопки-героя (статическая) */
+  border-radius: 0.25rem; /* from btn--primary color: #ffffff; */
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15); /* Тень для Кнопки-героя (статическая) */
 
   transition: background-color var(--time) var(--cubic);
 }
@@ -607,51 +602,83 @@ main > .features {
   margin-left: calc(-1 * var(--uni-margin));
 }
 
-.feature-item {
+.feature-list-item {
+  position: relative;
   flex-basis: calc(100% / var(--cards-per-line-4) - var(--uni-margin));
+  max-width: calc(100% / var(--cards-per-line-4) - var(--uni-margin));
+
   margin-top: var(--uni-margin);
   margin-left: var(--uni-margin);
+
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
-.feature-item::before {
+.feature-list-item::before {
+  z-index: 1;
+
   display: block;
   width: 100%;
-  min-height: 120px;
-  margin-bottom: 30px;
+
+  padding-top: calc((1rem - 1px) * 4);
+  padding-bottom: calc((1rem - 1px) * 4);
+
+  margin-bottom: calc((1rem - 1px) * 2);
 
   content: "";
 
   background-color: var(--color-bg-secondary);
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 4px;
+  border-radius: calc(1rem / 4);
 }
 
-.feature-item:nth-child(1)::before {
+.feature-list-item::after {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+
+  /* anchor */
+  width: 100%;
+  height: calc(1rem * 4 + 6px) /* 70px = rem*4 + 6 */;
+  margin-top: calc(1rem + 9px);
+  /* margin-bottom: calc(1rem + 9px); */
+
+  font-size: 2rem;
+  content: "";
+
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.feature-list-item:nth-child(1)::after {
   background-image: url(../images/svgomg/features/antenna-ok.svg);
 }
 
-.feature-item:nth-child(2)::before {
+.feature-list-item:nth-child(2)::after {
   background-image: url(../images/svgomg/features/clock-ok.svg);
 }
 
-.feature-item:nth-child(3)::before {
+.feature-list-item:nth-child(3)::after {
   background-image: url(../images/svgomg/features/diagram-ok.svg);
 }
 
-.feature-item:nth-child(4)::before {
+.feature-list-item:nth-child(4)::after {
   background-image: url(../images/svgomg/features/astronaut-ok.svg);
 }
 
-/* <!-- <svg class="features-item-icon" width="65" height="70">
-                  <use href="./images/svgomg-icomooned/icons.svg#icon-antenna"></use>
-                </svg> */
+.feature-list-item:hover::after {
+  /* filter: invert(12%) sepia(90%) saturate(7408%) hue-rotate(2deg) brightness(116%) contrast(113%); */
+  /* Loss: 0.0. This is a perfect result. this is red*/
+
+  filter: invert(24%) sepia(82%) saturate(2473%) hue-rotate(215deg) brightness(105%) contrast(91%);
+  /* Loss: 0.1. This is a perfect result. (Replaces svg's default black fill into filtered color quite similar to #2169f3. ) */
+}
 
 #my-icon-path {
   /* BUG DELETE ME */
-  fill: var(--color-accent) !important;
-  color: var(--color-accent) !important;
-  background-color: var(--color-accent) !important;
+  fill: var(--color-accent);
+  color: var(--color-accent);
+  background-color: var(--color-accent);
+  filter: invert(24%) sepia(82%) saturate(2473%) hue-rotate(215deg) brightness(105%) contrast(91%);
 }
 
 /* Внимание к деталям, Пунктуальность, Планирование, Современные технологии, h16.41px */
@@ -668,7 +695,7 @@ main > .features {
 Равным образом консультация с широким активом в значительной степени обуславливает.
 Значимость этих проблем настолько очевидна, что реализация плановых заданий. w270px, h75px */
 .feature-paragraph {
-  min-width: 270px;
+  /* min-width: 270px; */
   min-height: 75px;
 
   color: var(--color-text-secondary); /* #757575 */ /* from browser font-weight: 400; */
@@ -717,14 +744,11 @@ main > .activities {
   position: absolute; /* label */
   bottom: 0;
 
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 24%;
-  max-height: 24%;
-  padding-top: 27px;
-  padding-right: clamp(5px, 2vw, 15px);
-  padding-bottom: 27px;
-  padding-left: clamp(5px, 2vw, 15px);
+  width: 100%;
+  padding-top: calc(1rem + 11px);
+  padding-right: clamp((0.4rem + 1px), 2vw, (1rem - 1px));
+  padding-bottom: calc(1rem + 11px);
+  padding-left: clamp((0.4rem + 1px), 2vw, (1rem - 1px));
 
   overflow: hidden;
   word-wrap: break-word;
@@ -787,10 +811,10 @@ main > .activities {
 }
 
 .designer-card-title {
-  min-width: 160px;
+  /* min-width: 160px; */
   min-height: 162px;
 
-  padding-top: var(--uni-margin); /* Паддинги между именем/ролью дизайнера и их контейнером */
+  padding-top: var(--uni-margin); /* Заполнение между именем/ролью дизайнера и их контейнером */
   padding-right: calc(var(--uni-margin) + 2px);
   padding-bottom: var(--uni-margin);
   padding-left: calc(var(--uni-margin) + 2px);
@@ -916,8 +940,6 @@ main > .activities {
 
 .client-link:hover,
 .client-link:focus {
-  border-width: 1px;
-  border-style: solid;
   border-color: var(--color-accent);
 }
 
@@ -1258,7 +1280,8 @@ main > .activities {
 /* ------------------------------------------------------ */
 .contact-form {
   /* FIXME */
-  min-width: 400px;
+
+  max-width: 600px;
   padding-top: 40px;
   padding-right: 40px;
   padding-bottom: 40px;
@@ -1311,8 +1334,8 @@ main > .activities {
   top: 0;
   z-index: 100;
 
-  min-width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   /* FIXME */
   background-color: rgba(0, 0, 0, 0.2);
 
