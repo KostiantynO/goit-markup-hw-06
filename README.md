@@ -49,19 +49,45 @@ html-css-22 Модуль 4. Вебинар №8. Векторная график
   4. then inserted as inline svg everywhere. End!
 
 <svg>
-  <use href="https://sprite.svg#fragment"
-  </use>
+  <use href="https://sprite.svg#fragment"></use>
 </svg>
 
 Mission I'm possible for weekends - finish HW#6:
 
-1. смотреть записи. Done.
-2. делать себе спрайтики. TODO.
-3. ставить inline svg. TODO.
-4. удалить width, hight, fill. TODO.
-5. Изменяем currentColor через fill. TODO.
+1. смотреть записи. DONE.
+2. делать себе спрайтики. DONE.
+3. ставить inline svg. DONE.
+4. удалить width, hight, fill.\ auto via icomoon. DONE.
+5. Add fill="currentColor" to icon-path inside and \*.svg sprite. Inherit fill for icons in
+   shadowDOM through color: var(--color-accent) on svg. DONE.
 
-backrgound-position: x смещение-x y смещение-y backrgound-position: right 30px bottom 20px;
-
-href="./contacts.html" https://www.google.com" https://developer.mozilla.org/ru/docs/web/css
+<!--
+backrgound-position: x смещение-x y смещение-y
+backrgound-position: right 30px bottom 20px;
+ -->
+<!--
+href="./contacts.html"
+https://www.google.com"
+https://developer.mozilla.org/ru/docs/web/css
 https://stackoverflow.com/questions/tagged/css
+-->
+
+2021-07-01 18:05 Модуль 5. Вебинар №9. Позиционированные элементы
+
+- Icons on the goods cards
+  1. Goods card with icons relative to the card.
+  2. Goods card with icons relative to the image and overlay.
+  3. Fixed Header
+  <!--
+    <script>
+      const { height: pageHeaderHeight } = document
+      .querySelector(".page-header")
+      .getBoundingClientRect();
+      document.body.style
+      .paddingTop = "${pageHeaderHeight}px";
+    </script>
+  -->
+  4. Modal Window (https://fancyapps.com/fancybox/3/)
+  5. Dropdown menus
+
+menu-item posr > submenu posa. opacity=0 and visibility=visible / pointer events auto on hover.
