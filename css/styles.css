@@ -100,6 +100,7 @@ body {
   font-size: 14px;
   line-height: 1.71; /* h24px */
   color: var(--color-text-primary); /* #212121 */
+  fill: var(--color-text-primary);
   letter-spacing: 0.03em;
 
   background-color: var(--color-white);
@@ -622,8 +623,7 @@ main > .features {
   min-width: 15.625rem;
   max-width: 28.125rem;
 
-  max-height: 267.76px;
-  max-height: 16.735rem;
+  max-height: 16.735rem; /* 267.76px */
 
   margin-top: var(--uni-margin); /* 30px top and left */
   margin-left: var(--uni-margin);
@@ -632,23 +632,17 @@ main > .features {
 }
 
 .feature-svg-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-
+  min-height: 7.5rem;
   padding-top: 1.5625rem;
   padding-bottom: 1.5625rem;
   margin-bottom: 1.875rem;
 
-  content: "";
   background-color: var(--color-bg-secondary);
   border-radius: 0.25rem;
-}
-
-.features-svg {
-  height: 4.375rem;
-  width: 4.375rem;
+  /* fill: var(--color-text-primary); height: 4.375rem; */
+  /* .antenna-circle, .clock-ticks, .diagram-bars, .astronaut-stars */
+  color: var(--color-accent);
 }
 
 /* Внимание к деталям, Пунктуальность, Планирование, Современные технологии, h16.41px */
@@ -725,12 +719,18 @@ main > .activities {
   margin-left: var(--uni-margin);
 }
 
+.activity-image {
+  width: 100%;
+  height: 18.375rem;
+  min-width: clamp(15.625rem, 100%, 23.125rem);
+}
+
 /* bg - activity-overlay-label */
 .activity-overlay {
   position: absolute; /* label */
   bottom: 0;
 
-  width: 100%;
+  min-width: 100%;
   padding-top: calc(1rem + 11px);
   padding-right: clamp((0.4rem + 1px), 2vw, (1rem - 1px));
   padding-bottom: calc(1rem + 11px);
@@ -750,7 +750,7 @@ main > .activities {
 
 /* Десктопные приложения, Мобильные приложения, Дизайнерские решения, h16px */
 .activity-list-label {
-  font-size: clamp(7px, 2vw, 14px);
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.17;
   color: var(--color-white);
@@ -808,6 +808,8 @@ main > .activities {
   object-fit: contain;
   object-position: top;
   width: 100%;
+  min-width: clamp(250px, 100%, 450px);
+
   height: 100%;
   margin: 0 auto;
 
@@ -867,7 +869,7 @@ fill: currentColor;
   min-height: 19px;
 
   max-height: 3.57rem;
-
+  margin-bottom: 16px;
   overflow: hidden;
 
   font-size: 16px; /* from browser font-weight: 400; */
@@ -888,16 +890,12 @@ fill: currentColor;
   justify-content: center;
 
   margin-left: -10px;
+  margin-top: -16px;
   padding-bottom: 24px;
 }
 
 .social-item {
-  width: 44px;
-  height: 44px;
   margin-top: 16px;
-}
-
-.social-list .social-item + .social-item {
   margin-left: 10px;
 }
 
@@ -906,28 +904,24 @@ fill: currentColor;
   align-items: center;
   justify-content: center;
 
-  width: 100%;
-  height: 100%;
+  padding: 12px;
+
+  color: var(--color-icon);
   border-radius: 50%;
 
-  transition: background-color var(--time) var(--cubic);
+  transition: color var(--time) var(--cubic), background-color var(--time) var(--cubic);
 }
 
 .social-link:focus,
 .social-link:hover {
+  color: var(--color-white);
   background-color: var(--color-accent);
 }
 
 .social-icon {
-  fill: var(--color-icon);
-
-  transition: currentColor var(--time) var(--cubic);
+  fill: currentColor;
 }
 
-.social-link:hover .social-icon,
-.social-link:focus .social-icon {
-  fill: var(--color-white);
-}
 /* END "Ссылки на соц. сети" */
 /* ------------------------------------------------------ */
 /* || --------------- END "НАША КОМАНДА" ---------------- */
@@ -1047,14 +1041,12 @@ fill: currentColor;
 
 /* присоединяйтесь, h16.41px */
 .footer-social-title {
+  margin-bottom: 20px;
+
   font-weight: 700;
   line-height: 1.17; /* from body font-size: 14px; */
   color: var(--color-white);
   text-transform: uppercase;
-}
-
-.footer-social-list {
-  margin-top: 20px;
 }
 
 .footer-social-link {
@@ -1196,8 +1188,6 @@ fill: currentColor;
   height: 18.375rem;
 
   min-width: clamp(15.625rem, 100%, 28.125rem);
-
-  margin: 0 auto;
 }
 
 /* hover overlay */
