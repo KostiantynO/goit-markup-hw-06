@@ -36,18 +36,15 @@
   </head>
 
   <body class="portfolio-body">
-    <!-- Шапка сайта 2021-07-01 00:54 -->
+    <!-- Шапка сайта 2021-07-04 01:57 -->
     <header class="page-header">
-      <!-- Пропустить к Основному Контенту (для скрин-ридеров) -->
-      <div class="skip-to-content">
-        <a class="skip-link" href="#maincontent">skip to main content</a>
-      </div>
+      <!-- Пропустить к Основному Контенту -->
+      <a class="skip-link links" href="#main-content">skip to main content</a>
 
       <div class="container">
         <nav class="header-nav">
           <a class="logo links" href="./" hreflang="ru" lang="en">
-            <span class="web-studio accent">Web</span>
-            <span class="web-studio black">Studio</span>
+            <span class="web-studio accent">Web</span><span class="web-studio black">Studio</span>
           </a>
 
           <ul class="nav-menu list">
@@ -70,38 +67,71 @@
             </li>
           </ul>
 
-          <button class="btn btn--secondary is-hidden" type="button">
-            <svg class="header-nav-icon svg icon-burger" width="40" height="40">
+          <button
+            class="btn btn--secondary is-hidden"
+            type="button"
+            aria-labelledby="burger-id-label"
+          >
+            <svg class="header-nav-icon svg icon-burger" aria-hidden="true" width="40" height="40">
               <use href="./images/icomoon-svgomg/icons.svg#icon-burger"></use>
             </svg>
+
+            <span class="tooltip" id="burger-id-label"> Меню навигации </span>
           </button>
 
-          <button class="btn btn--secondary is-hidden" type="button">
-            <svg class="header-nav-icon svg icon-close" width="40" height="40">
+          <button
+            class="btn btn--secondary is-hidden"
+            type="button"
+            aria-labelledby="close-nav-menu-id-label"
+          >
+            <svg class="header-nav-icon svg icon-close" aria-hidden="true" width="40" height="40">
               <use href="./images/icomoon-svgomg/icons.svg#icon-close-40px"></use>
             </svg>
+
+            <span class="tooltip" id="close-nav-menu-id-label"> Закрыть меню </span>
           </button>
         </nav>
 
         <ul class="header-contacts-list list">
           <li class="contact-item">
-            <a class="header-contact links" href="mailto:info@devstudio.com">
-              <svg class="header-contact-icon svg icon-envelope" width="16" height="12">
+            <a
+              class="header-contact links"
+              href="mailto:info@devstudio.com"
+              aria-labelledby="devstudio-email-id-label"
+            >
+              <svg
+                class="header-contact-icon svg icon-envelope"
+                aria-hidden="true"
+                width="16"
+                height="12"
+              >
                 <use href="./images/icomoon-svgomg/icons.svg#icon-envelope"></use>
               </svg>
+              <span class="tooltip" id="devstudio-email-id-label">
+                Эл. почта студии разработчиков
+              </span>
 
-              info@devstudio.com</a
-            >
+              info@devstudio.com
+            </a>
           </li>
 
           <li class="contact-item">
-            <a class="header-contact links" href="tel:+380961111111">
-              <svg class="header-contact-icon svg icon-smartphone" width="10" height="16">
+            <a
+              class="header-contact links"
+              href="tel:+380961111111"
+              aria-labelledby="webstudio-phone-id-label"
+            >
+              <svg
+                class="header-contact-icon svg icon-smartphone"
+                aria-hidden="true"
+                width="10"
+                height="16"
+              >
                 <use href="./images/icomoon-svgomg/icons.svg#icon-smartphone"></use>
               </svg>
-
-              +38 096 111 11 11</a
-            >
+              <span class="tooltip" id="webstudio-phone-id-label"> Моб. тел. </span>
+              +38 096 111 11 11
+            </a>
           </li>
         </ul>
       </div>
@@ -110,7 +140,7 @@
     <main>
       <!-- Портфолио -->
       <section class="portfolio section">
-        <div class="portfolio-container container" id="maincontent">
+        <div class="portfolio-container container" id="main-content">
           <h1 class="sr-only">Примеры работ</h1>
 
           <!-- Фильтры-кнопки -->
@@ -471,12 +501,12 @@
       </section>
     </main>
 
-    <!-- Footer Updated on 2021-Jul-01 00:51 -->
+    <!-- Footer Updated on 2021-07-04 01:43 -->
     <footer class="page-footer">
       <div class="container">
         <div class="footer-address-wrapper">
           <a class="logo links" href="./" lang="en">
-            <span class="web-studio accent">Web</span><span class="web-studio white">Studio</span>
+            <span class="web-studio accent"> Web</span><span class="web-studio white">Studio </span>
           </a>
           <address class="footer-address">
             <ul class="footer-address-list list">
@@ -485,17 +515,37 @@
                   class="footer-map-pointer links"
                   rel="noopener noreferrer nofollow"
                   href="https://goo.gl/maps/HiSWEAjoAeCsFwUL7"
+                  aria-labelledby="webstudio-map-pointer-id-label"
                   target="_blank"
-                  >г. Киев, пр-т Леси Украинки, 26</a
                 >
+                  <span class="tooltip" id="webstudio-map-pointer-id-label"
+                    ><span lang="en"> Адрес на Google Maps </span></span
+                  >
+                  г. Киев, пр-т Леси Украинки, 26
+                </a>
               </li>
 
               <li class="footer-address-item">
-                <a class="footer-contact links" href="mailto:info@example.com">info@example.com</a>
+                <a
+                  class="footer-contact links"
+                  href="mailto:info@example.com"
+                  aria-labelledby="webstudio-email-id-label"
+                >
+                  <span class="tooltip" id="webstudio-email-id-label"> Эл. почта </span>
+                  info@example.com
+                </a>
               </li>
 
               <li class="footer-address-item">
-                <a class="footer-contact links" href="tel:+380991111111">+38 099 111 11 11</a>
+                <a
+                  class="footer-contact links"
+                  href="tel:+380991111111"
+                  aria-labelledby="webstudio-phone-id-label"
+                >
+                  <span class="tooltip" id="webstudio-phone-id-label"> Моб. тел. </span>
+
+                  +38 099 111 11 11
+                </a>
               </li>
             </ul>
           </address>
@@ -511,8 +561,16 @@
                 class="social-link footer-social-link"
                 rel="noopener nofollow noreferrer"
                 href="#0"
+                aria-labelledby="webstudio-instagram-id-label"
               >
-                <svg class="social-icon svg footer-social-icon" width="20" height="20">
+                <span class="tooltip" id="webstudio-instagram-id-label">Инстаграм</span>
+
+                <svg
+                  class="social-icon svg footer-social-icon"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                >
                   <use href="./images/icomoon-svgomg/icons.svg#icon-instagram"></use>
                 </svg>
               </a>
@@ -523,8 +581,16 @@
                 class="social-link footer-social-link"
                 rel="noopener nofollow noreferrer"
                 href="#0"
+                aria-labelledby="webstudio-twitter-id-label"
               >
-                <svg class="social-icon svg footer-social-icon" width="20" height="20">
+                <span class="tooltip" id="webstudio-twitter-id-label">Твиттер</span>
+
+                <svg
+                  class="social-icon svg footer-social-icon"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                >
                   <use href="./images/icomoon-svgomg/icons.svg#icon-twitter"></use>
                 </svg>
               </a>
@@ -535,8 +601,15 @@
                 class="social-link footer-social-link"
                 rel="noopener nofollow noreferrer"
                 href="#0"
+                aria-labelledby="webstudio-facebook-id-label"
               >
-                <svg class="social-icon svg footer-social-icon" width="20" height="20">
+                <span class="tooltip" id="webstudio-facebook-id-label">Фейсбук</span>
+                <svg
+                  class="social-icon svg footer-social-icon"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                >
                   <use href="./images/icomoon-svgomg/icons.svg#icon-facebook"></use>
                 </svg>
               </a>
@@ -547,8 +620,15 @@
                 class="social-link footer-social-link"
                 rel="noopener nofollow noreferrer"
                 href="#0"
+                aria-labelledby="webstudio-linkedin-id-label"
               >
-                <svg class="social-icon svg footer-social-icon" width="20" height="20">
+                <span class="tooltip" id="webstudio-linkedin-id-label">LinkedIn</span>
+                <svg
+                  class="social-icon svg footer-social-icon"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                >
                   <use href="./images/icomoon-svgomg/icons.svg#icon-linkedin"></use>
                 </svg>
               </a>
