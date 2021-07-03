@@ -1,4 +1,4 @@
-# goit-markup-hw-05
+# goit-markup-hw-05 and # goit-markup-hw-06
 
 Модуль 3. Вебинар 5. Блочная Модель:
 
