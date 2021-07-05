@@ -1,12 +1,13 @@
 (() => {
-  const e = {
-    z: document.querySelector("[data-modal-open]"),
-    x: document.querySelector("[data-modal-close]"),
-    c: document.querySelector("[data-modal]"),
-    t: document.querySelector("[data-no-scroll]"),
-  };
-  function p() {
-    e.c.classList.toggle("is-hidden"), e.t.classList.toggle("no-scroll");
+  function modal(event) {
+    if (
+      event.target.closest("[data-modal-close]") ||
+      event.target.closest("[data-modal-open]") ||
+      event.target.matches("[data-modal]")
+    ) {
+      document.querySelector("[data-modal]").classList.toggle("is-hidden"),
+        document.querySelector("[data-no-scroll]").classList.toggle("no-scroll");
+    }
   }
-  e.z.addEventListener("click", p), e.x.addEventListener("click", p);
+  document.addEventListener("click", modal, false);
 })();

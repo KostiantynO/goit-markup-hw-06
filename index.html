@@ -72,7 +72,7 @@
               <use href="./images/icomoon-svgomg/icons.svg#icon-burger"></use>
             </svg>
 
-            <span class="tooltip" id="burger-id-label"> Меню навигации </span>
+            <span class="tooltip" id="burger-id-label"> Меню </span>
           </button>
 
           <button
@@ -84,7 +84,7 @@
               <use href="./images/icomoon-svgomg/icons.svg#icon-close-40px"></use>
             </svg>
 
-            <span class="tooltip" id="close-nav-menu-id-label"> Закрыть меню </span>
+            <span class="tooltip" id="close-nav-menu-id-label"> Закрыть </span>
           </button>
         </nav>
 
@@ -103,9 +103,7 @@
               >
                 <use href="./images/icomoon-svgomg/icons.svg#icon-envelope"></use>
               </svg>
-              <span class="tooltip" id="devstudio-email-id-label">
-                Эл. почта студии разработчиков
-              </span>
+              <span class="tooltip" id="devstudio-email-id-label"> Почта студии </span>
 
               info@devstudio.com
             </a>
@@ -125,7 +123,7 @@
               >
                 <use href="./images/icomoon-svgomg/icons.svg#icon-smartphone"></use>
               </svg>
-              <span class="tooltip" id="webstudio-phone-id-label"> Моб. тел. </span>
+              <span class="tooltip" id="webstudio-phone-id-label"> Мобильный студии </span>
               +38 096 111 11 11
             </a>
           </li>
@@ -135,9 +133,9 @@
 
     <main>
       <!-- Герой -->
-      <section class="hero section" tabindex="0">
+      <section class="hero section" aria-labelledby="hero-title-id" tabindex="0">
         <div class="hero-container container" id="main-content">
-          <h1 class="hero-title">
+          <h1 class="hero-title" id="hero-title-id">
             Эффективные решения <br class="hero-title-br" />
             для вашего бизнеса
           </h1>
@@ -149,9 +147,9 @@
       </section>
 
       <!-- "Особенности" и h2 sr-only -->
-      <section class="features section" tabindex="0">
+      <section class="features section" aria-labelledby="features-title-id" tabindex="0">
         <div class="features-container container">
-          <h2 class="sr-only">Особенности</h2>
+          <h2 class="sr-only" id="features-title-id">Особенности</h2>
           <ul class="features-list list">
             <li class="feature-list-item">
               <svg class="feature-svg-wrapper svg" aria-hidden="true" width="70" height="70">
@@ -213,9 +211,9 @@
       </section>
 
       <!-- Чем мы занимаемся -->
-      <section class="activities section" tabindex="0">
+      <section class="activities section" aria-labelledby="activities-title-id" tabindex="0">
         <div class="activities-container container">
-          <h2 class="section-title activities-title">Чем мы занимаемся</h2>
+          <h2 class="section-title" id="activities-title-id">Чем мы занимаемся</h2>
           <!-- Сжатые *.jpg активностей -->
           <ul class="activities-list list" data-placeholder="Заполнитель">
             <li class="activity-list-item">
@@ -264,9 +262,9 @@
       </section>
 
       <!-- Наша команда -->
-      <section class="designers section" tabindex="0">
-        <div class="designers-container container">
-          <h2 class="section-title designers-title">Наша команда</h2>
+      <section class="team section" aria-labelledby="team-title-id" tabindex="0">
+        <div class="container">
+          <h2 class="section-title" id="team-title-id">Наша команда</h2>
           <!-- Ужатые *.jpg участников -->
           <ul class="designers-list list" data-placeholder="Заполнитель">
             <li class="designer-list-item">
@@ -292,14 +290,14 @@
                       href="#0"
                       aria-labelledby="designer-instagram-id-label-1"
                     >
-                      <span class="tooltip" id="designer-instagram-id-label-1">Инстаграм</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-instagram"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-instagram-id-label-1">Инстаграм</span>
                     </a>
                   </li>
 
@@ -310,14 +308,14 @@
                       href="#0"
                       aria-labelledby="designer-twitter-id-label-1"
                     >
-                      <span class="tooltip" id="designer-twitter-id-label-1">Твиттер</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-twitter"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-twitter-id-label-1">Твиттер</span>
                     </a>
                   </li>
 
@@ -328,14 +326,14 @@
                       href="#0"
                       aria-labelledby="designer-facebook-id-label-1"
                     >
-                      <span class="tooltip" id="designer-facebook-id-label-1">Фейсбук</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-facebook"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-facebook-id-label-1">Фейсбук</span>
                     </a>
                   </li>
 
@@ -346,14 +344,14 @@
                       href="#0"
                       aria-labelledby="designer-linkedIn-id-label-1"
                     >
-                      <span class="tooltip" id="designer-linkedIn-id-label-1">LinkedIn</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-linkedin"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-linkedIn-id-label-1">LinkedIn</span>
                     </a>
                   </li>
                 </ul>
@@ -382,14 +380,14 @@
                       href="#0"
                       aria-labelledby="designer-instagram-id-label-2"
                     >
-                      <span class="tooltip" id="designer-instagram-id-label-2">Инстаграм</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-instagram"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-instagram-id-label-2">Инстаграм</span>
                     </a>
                   </li>
 
@@ -400,14 +398,14 @@
                       href="#0"
                       aria-labelledby="designer-twitter-id-label-2"
                     >
-                      <span class="tooltip" id="designer-twitter-id-label-2">Твиттер</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-twitter"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-twitter-id-label-2">Твиттер</span>
                     </a>
                   </li>
 
@@ -418,14 +416,14 @@
                       href="#0"
                       aria-labelledby="designer-facebook-id-label-2"
                     >
-                      <span class="tooltip" id="designer-facebook-id-label-2">Фейсбук</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-facebook"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-facebook-id-label-2">Фейсбук</span>
                     </a>
                   </li>
 
@@ -436,14 +434,14 @@
                       href="#0"
                       aria-labelledby="designer-linkedIn-id-label-2"
                     >
-                      <span class="tooltip" id="designer-linkedIn-id-label-2">LinkedIn</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-linkedin"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-linkedIn-id-label-2">LinkedIn</span>
                     </a>
                   </li>
                 </ul>
@@ -473,14 +471,14 @@
                       href="#0"
                       aria-labelledby="designer-instagram-id-label-3"
                     >
-                      <span class="tooltip" id="designer-instagram-id-label-3">Инстаграм</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-instagram"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-instagram-id-label-3">Инстаграм</span>
                     </a>
                   </li>
 
@@ -491,14 +489,14 @@
                       href="#0"
                       aria-labelledby="designer-twitter-id-label-3"
                     >
-                      <span class="tooltip" id="designer-twitter-id-label-3">Твиттер</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-twitter"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-twitter-id-label-3">Твиттер</span>
                     </a>
                   </li>
 
@@ -509,14 +507,14 @@
                       href="#0"
                       aria-labelledby="designer-facebook-id-label-3"
                     >
-                      <span class="tooltip" id="designer-facebook-id-label-3">Фейсбук</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-facebook"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-facebook-id-label-3">Фейсбук</span>
                     </a>
                   </li>
 
@@ -527,14 +525,14 @@
                       href="#0"
                       aria-labelledby="designer-linkedIn-id-label-3"
                     >
-                      <span class="tooltip" id="designer-linkedIn-id-label-3">LinkedIn</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-linkedin"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-linkedIn-id-label-3">LinkedIn</span>
                     </a>
                   </li>
                 </ul>
@@ -564,14 +562,14 @@
                       href="#0"
                       aria-labelledby="designer-instagram-id-label-4"
                     >
-                      <span class="tooltip" id="designer-instagram-id-label-4">Инстаграм</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-instagram"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-instagram-id-label-4">Инстаграм</span>
                     </a>
                   </li>
 
@@ -582,14 +580,14 @@
                       href="#0"
                       aria-labelledby="designer-twitter-id-label-4"
                     >
-                      <span class="tooltip" id="designer-twitter-id-label-4">Твиттер</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-twitter"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-twitter-id-label-4">Твиттер</span>
                     </a>
                   </li>
 
@@ -600,14 +598,14 @@
                       href="#0"
                       aria-labelledby="designer-facebook-id-label-4"
                     >
-                      <span class="tooltip" id="designer-facebook-id-label-4">Фейсбук</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-facebook"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-facebook-id-label-4">Фейсбук</span>
                     </a>
                   </li>
 
@@ -618,14 +616,14 @@
                       href="#0"
                       aria-labelledby="designer-linkedIn-id-label-4"
                     >
-                      <span class="tooltip" id="designer-linkedIn-id-label-4">LinkedIn</span>
-
                       <svg class="social-icon svg" aria-hidden="true" width="20" height="20">
                         <use
                           href="./images/icomoon-svgomg/icons.svg#icon-linkedin"
                           aria-hidden="true"
                         ></use>
                       </svg>
+
+                      <span class="tooltip" id="designer-linkedIn-id-label-4">LinkedIn</span>
                     </a>
                   </li>
                 </ul>
@@ -636,55 +634,103 @@
       </section>
 
       <!-- Постоянные клиенты -->
-      <section class="clients section" tabindex="0">
+      <section class="clients section" aria-labelledby="clients-title-id" tabindex="0">
         <div class="container">
-          <h2 class="section-title">Постоянные клиенты</h2>
+          <h2 class="section-title" id="clients-title-id">Постоянные клиенты</h2>
           <ul class="clients-list list">
             <li class="client-item">
-              <a class="client-link" rel="noopener nofollow noreferrer" href="#0">
+              <a
+                class="client-link"
+                rel="noopener nofollow noreferrer"
+                href="#0"
+                aria-labelledby="client-id-label-1"
+              >
                 <svg class="client-icon" aria-hidden="true" width="106" height="60">
                   <use href="./images/icomoon-svgomg/icons.svg#icon-client-1"></use>
                 </svg>
+
+                <span class="tooltip" id="client-id-label-1" lang="en"> YA & CO </span>
               </a>
             </li>
 
             <li class="client-item">
-              <a class="client-link" rel="noopener nofollow noreferrer" href="#0">
+              <a
+                class="client-link"
+                rel="noopener nofollow noreferrer"
+                href="#0"
+                aria-labelledby="client-id-label-2"
+              >
                 <svg class="client-icon" aria-hidden="true" width="106" height="60">
                   <use href="./images/icomoon-svgomg/icons.svg#icon-client-2"></use>
                 </svg>
+
+                <span class="tooltip" id="client-id-label-2" lang="en">
+                  COMPANY
+                  <span class="small">Tag line here</span>
+                </span>
               </a>
             </li>
 
             <li class="client-item">
-              <a class="client-link" rel="noopener nofollow noreferrer" href="#0">
+              <a
+                class="client-link"
+                rel="noopener nofollow noreferrer"
+                href="#0"
+                aria-labelledby="client-id-label-3"
+              >
                 <svg class="client-icon" aria-hidden="true" width="106" height="60">
                   <use href="./images/icomoon-svgomg/icons.svg#icon-client-3"></use>
                 </svg>
+
+                <span class="tooltip" id="client-id-label-3"> COMPANY </span>
               </a>
             </li>
 
             <li class="client-item">
-              <a class="client-link" rel="noopener nofollow noreferrer" href="#0">
+              <a
+                class="client-link"
+                rel="noopener nofollow noreferrer"
+                href="#0"
+                aria-labelledby="client-id-label-4"
+              >
                 <svg class="client-icon" aria-hidden="true" width="106" height="60">
                   <use href="./images/icomoon-svgomg/icons.svg#icon-client-4"></use>
                 </svg>
+
+                <span class="tooltip" id="client-id-label-4"> FOSTER PETERS </span>
               </a>
             </li>
 
             <li class="client-item">
-              <a class="client-link" rel="noopener nofollow noreferrer" href="#0">
+              <a
+                class="client-link"
+                rel="noopener nofollow noreferrer"
+                href="#0"
+                aria-labelledby="client-id-label-5"
+              >
                 <svg class="client-icon" aria-hidden="true" width="106" height="60">
                   <use href="./images/icomoon-svgomg/icons.svg#icon-client-5"></use>
                 </svg>
+
+                <span class="tooltip" id="client-id-label-5"> BRAND </span>
               </a>
             </li>
 
             <li class="client-item">
-              <a class="client-link" rel="noopener nofollow noreferrer" href="#0">
+              <a
+                class="client-link"
+                rel="noopener nofollow noreferrer"
+                href="#0"
+                aria-labelledby="client-id-label-6"
+              >
                 <svg class="client-icon" aria-hidden="true" width="106" height="60">
                   <use href="./images/icomoon-svgomg/icons.svg#icon-client-6"></use>
                 </svg>
+
+                <span class="tooltip" id="client-id-label-6" lang="en">
+                  COMPANY
+                  <span class="small">Tag line</span>
+                </span>
               </a>
             </li>
           </ul>
@@ -692,7 +738,7 @@
       </section>
     </main>
 
-    <!-- Footer Updated on 2021-07-04 01:43 -->
+    <!-- Footer Updated on 2021-07-04 19:45 -->
     <footer class="page-footer">
       <div class="container">
         <div class="footer-address-wrapper">
@@ -722,7 +768,7 @@
                   href="mailto:info@example.com"
                   aria-labelledby="webstudio-email-id-label"
                 >
-                  <span class="tooltip" id="webstudio-email-id-label"> Эл. почта </span>
+                  <span class="tooltip" id="webstudio-email-id-label"> Почта инфоотдела </span>
                   info@example.com
                 </a>
               </li>
@@ -733,7 +779,7 @@
                   href="tel:+380991111111"
                   aria-labelledby="webstudio-phone-id-label"
                 >
-                  <span class="tooltip" id="webstudio-phone-id-label"> Моб. тел. </span>
+                  <span class="tooltip" id="webstudio-phone-id-label"> Мобильный инфоотдела </span>
 
                   +38 099 111 11 11
                 </a>
@@ -754,8 +800,6 @@
                 href="#0"
                 aria-labelledby="webstudio-instagram-id-label"
               >
-                <span class="tooltip" id="webstudio-instagram-id-label">Инстаграм</span>
-
                 <svg
                   class="social-icon svg footer-social-icon"
                   aria-hidden="true"
@@ -764,6 +808,8 @@
                 >
                   <use href="./images/icomoon-svgomg/icons.svg#icon-instagram"></use>
                 </svg>
+
+                <span class="tooltip" id="webstudio-instagram-id-label">Инстаграм</span>
               </a>
             </li>
 
@@ -774,8 +820,6 @@
                 href="#0"
                 aria-labelledby="webstudio-twitter-id-label"
               >
-                <span class="tooltip" id="webstudio-twitter-id-label">Твиттер</span>
-
                 <svg
                   class="social-icon svg footer-social-icon"
                   aria-hidden="true"
@@ -784,6 +828,8 @@
                 >
                   <use href="./images/icomoon-svgomg/icons.svg#icon-twitter"></use>
                 </svg>
+
+                <span class="tooltip" id="webstudio-twitter-id-label">Твиттер</span>
               </a>
             </li>
 
@@ -794,7 +840,6 @@
                 href="#0"
                 aria-labelledby="webstudio-facebook-id-label"
               >
-                <span class="tooltip" id="webstudio-facebook-id-label">Фейсбук</span>
                 <svg
                   class="social-icon svg footer-social-icon"
                   aria-hidden="true"
@@ -803,6 +848,8 @@
                 >
                   <use href="./images/icomoon-svgomg/icons.svg#icon-facebook"></use>
                 </svg>
+
+                <span class="tooltip" id="webstudio-facebook-id-label">Фейсбук</span>
               </a>
             </li>
 
@@ -813,7 +860,6 @@
                 href="#0"
                 aria-labelledby="webstudio-linkedin-id-label"
               >
-                <span class="tooltip" id="webstudio-linkedin-id-label">LinkedIn</span>
                 <svg
                   class="social-icon svg footer-social-icon"
                   aria-hidden="true"
@@ -822,6 +868,8 @@
                 >
                   <use href="./images/icomoon-svgomg/icons.svg#icon-linkedin"></use>
                 </svg>
+
+                <span class="tooltip" id="webstudio-linkedin-id-label">LinkedIn</span>
               </a>
             </li>
           </ul>
@@ -840,11 +888,11 @@
             type="button"
             aria-labelledby="modal-close-id-label"
           >
-            <span class="tooltip" id="modal-close-id-label">Close modal window</span>
-
             <svg class="modal-close-icon svg" aria-hidden="true" width="18" height="18">
               <use href="./images/icomoon-svgomg/icons.svg#icon-close-18px"></use>
             </svg>
+
+            <span class="tooltip" id="modal-close-id-label">Закрыть</span>
           </button>
         </div>
 
@@ -898,5 +946,6 @@
 
     <!-- Скрипт модального окна -->
     <script src="./js/modal.min.js"></script>
+    <!-- <script src="./js/modal.js"></script> -->
   </body>
 </html>

@@ -95,18 +95,19 @@ li,
 /* Главная */
 
 body {
+  overflow-x: hidden;
+  overflow-y: scroll; /*  STOP MOVING AROUND! */
+
   font-family: Roboto, sans-serif;
   font-size: 14px;
   line-height: 1.71; /* h24px */
   color: var(--color-text-primary); /* #212121 */
   letter-spacing: 0.03em;
+
   background-color: var(--color-white);
   fill: var(--color-text-primary);
-}
 
-.studio-body {
-  overflow-x: hidden;
-  overflow-y: scroll; /*  STOP MOVING AROUND! */
+  transition: transform var(--time) var(--cubic);
 }
 
 .page-header > .skip-link {
@@ -208,61 +209,84 @@ body {
 
 .tooltip {
   position: absolute;
-  top: 150%;
-  left: 75%;
+  top: 100%;
+  left: 50%;
   z-index: 2;
 
   display: block;
-  width: fit-content;
-  max-width: 500px;
-  max-height: 46px;
-  padding-top: 3px;
-  padding-right: 4px;
-  padding-bottom: 3px;
-  padding-left: 4px;
-  margin-top: 5px;
+  max-width: 21rem;
+  max-height: 10rem;
+
+  padding: 0.25rem;
+  margin-top: 0.25rem;
   overflow: hidden;
 
   font-size: 0.8rem;
   line-height: 1.21;
-  color: var(--color-bg-project-card);
+  color: var(--color-text-primary);
   text-align: center;
   text-overflow: ellipsis;
   word-wrap: break-word;
   white-space: nowrap;
 
   pointer-events: none;
-  background-color: var(--color-text-primary);
-  border: 1px solid var(--color-bg-project-card);
-
+  visibility: hidden;
+  border: 1px transparent var(--color-text-secondary);
   opacity: 0;
-  transition: transform var(--time) var(--cubic), opacity var(--time) var(--cubic);
+
+  transition: transform var(--time) var(--cubic), opacity var(--time) var(--cubic),
+    visibility var(--time) var(--cubic);
+  transform: translate(-50%, 21%);
+}
+
+.tooltip > .small {
+  text-transform: uppercase;
+  font-size: 0.6rem;
 }
 
 :hover > .tooltip,
 :focus > .tooltip {
   pointer-events: auto;
+  overflow: auto;
+  visibility: visible;
   opacity: 1;
-  transform: translateY(-70%);
+  transform: translate(-50%, 4%);
+}
+
+.header-contact:hover > .tooltip,
+.header-contact:focus > .tooltip {
+  transform: translate(-50%, 0);
+}
+
+.page-footer .tooltip {
+  color: var(--color-white);
 }
 
 .footer-map-pointer > .tooltip {
-  top: 210%;
-  left: 65%;
+  left: 100%;
+  white-space: nowrap;
 }
 
 .footer-map-pointer:hover > .tooltip,
 .footer-map-pointer:focus > .tooltip {
-  transform: translateY(-70%);
+  transform: translate(-55%, 0%);
 }
 
 .footer-contact > .tooltip {
-  left: 110%;
+  left: 100%;
+  white-space: nowrap;
+  transform: translate(10%, 40%);
 }
 
 .footer-contact:hover > .tooltip,
 .footer-contact:focus > .tooltip {
-  transform: translate(0, -70%);
+  transform: translate(7%, -40%);
+}
+
+.modal-close-btn > .tooltip {
+  left: -3%;
+  top: 121%;
+  white-space: normal;
 }
 
 /* Главная кнопка: фон - акцент,  цвет - белый #ffffff. + тень статическая */
@@ -312,6 +336,8 @@ body {
 }
 
 .header-nav {
+  position: relative;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -447,9 +473,10 @@ body {
 
   background-color: var(--color-accent);
   border-radius: 0.125rem;
+  border: 1px solid black;
 }
 
-.header-nav .btn {
+.header-nav > .btn {
   max-width: 2.5rem;
   max-height: 2.5rem;
 
@@ -467,6 +494,13 @@ body {
   color: var(--color-accent);
 
   background-color: #fff;
+}
+
+.header-nav > .btn.is-hidden {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  transform: translateY(-50%);
 }
 
 .header-nav .btn--secondary:hover,
@@ -748,8 +782,6 @@ main > .activities {
   padding-top: 2.9375rem;
 }
 
-/* .activities-title { } */
-
 .activities-list {
   display: flex;
   flex-direction: row;
@@ -820,11 +852,11 @@ main > .activities {
 /* ------------------------------------------------------ */
 /* || ------------- START "НАША КОМАНДА" ---------------- */
 /* ------------------------------------------------------ */
-.designers {
+.team {
   background-color: var(--color-bg-secondary);
 }
 
-/* team */ /* .designers-container { } */ /* .designers-title { } */
+/* team */
 .designers-list {
   display: flex;
   flex-direction: row;
@@ -865,9 +897,9 @@ main > .activities {
   object-position: top;
 
   width: 100%;
-  min-width: clamp(250px, 100%, 450px);
+  min-width: clamp(15.625rem, 100%, 28.125rem); /* 250...450px */
   height: 100%;
-  min-height: clamp(260px, 100%, 460px);
+  min-height: clamp(16.25rem, 100%, 28.75rem); /* 260...460px */
   margin: 0 auto;
   /* w450px img-h460px title-h162px card-h622px
      w354px img-h374px title-h162px card-h536px
@@ -997,6 +1029,8 @@ main > .activities {
 }
 
 .client-link {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1135,14 +1169,13 @@ main > .activities {
 .current-btn,
 .btn--secondary[aria-current="true"],
 .btn--secondary:hover,
-.btn--secondary:focus,
-.btn--secondary:active {
+.btn--secondary:focus {
   color: var(--color-white);
-
   background-color: var(--color-accent); /* Акцент #2196F3 */
   box-shadow: 0 3px 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08),
     0 2px 2px rgba(0, 0, 0, 0.12); /* Динамическая тень по наведению - shadow-middle */
 }
+
 /* END "Фильтры-Кнопки" */
 
 /* ------------------------------------------------------ */
@@ -1169,9 +1202,9 @@ main > .activities {
   flex-basis: calc(100% / var(--cards-per-line-3) - var(--uni-margin));
   flex-grow: 1;
 
-  min-width: 15.625rem;
-  max-width: 28.125rem;
-  width: clamp(15.625rem, 100%, var(--width-portfolio-image)); /* 250px, 100%, 370px */
+  min-width: 15.625rem; /* 250px */
+  width: clamp(15.625rem, 100%, var(--width-portfolio-image)); /* 250px, 100%, 450px */
+  max-width: var(--width-portfolio-image); /* 450px */
 
   min-height: calc(
     clamp(11.875rem, 30.29vw, 18.375rem) +
@@ -1188,7 +1221,6 @@ main > .activities {
       )
   ); /* 370px + 178.16px = 548.16px */
 
-  overflow: hidden;
   word-wrap: break-word;
 
   margin-top: var(--uni-margin); /* 30px top and left */
@@ -1206,19 +1238,18 @@ main > .activities {
 }
 
 .portfolio-project-link:focus,
-.portfolio-project-link:hover,
-.portfolio-project-link:active {
+.portfolio-project-link:hover {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  outline: none;
 }
 
 .portfolio-card > .links:hover,
-.portfolio-card > .links:focus,
-.portfolio-card > .links:active {
+.portfolio-card > .links:focus {
   color: inherit;
 }
 
-.project-image-wrapper {
+.project-thumb {
   position: relative;
   object-fit: contain;
 
@@ -1228,49 +1259,53 @@ main > .activities {
   overflow: hidden;
 }
 
+/* hover overlay */
+.project-thumb::before,
+.portfolio-project-desc {
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transform: translateY(100%);
+
+  transition: transform var(--time) var(--cubic), opacity var(--time) var(--cubic),
+    visibility var(--time) var(--cubic);
+}
+
+.project-thumb::before {
+  z-index: 2;
+  content: "";
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.portfolio-project-link:hover .portfolio-project-desc,
+.portfolio-project-link:focus .portfolio-project-desc,
+.portfolio-project-link:hover .project-thumb::before,
+.portfolio-project-link:focus .project-thumb::before {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .portfolio-image {
   width: 100%; /* 22.125rem=354px if need later */
   height: 18.375rem;
   min-width: clamp(15.625rem, 100%, var(--width-portfolio-image)); /* 250px, 100%, 450px */
 }
 
-/* hover overlay */
-.portfolio-project-overlay {
-  position: absolute;
-  display: flex;
-  align-items: center;
-
-  top: 0;
-  z-index: 2;
-
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-
-  pointer-events: none;
-  background-color: rgba(33, 150, 243, 0.9);
-  opacity: 0;
-
-  transition: opacity var(--time) var(--cubic), transform var(--time) var(--cubic);
-  transform: translateY(100%);
-}
-
-.portfolio-project-link:focus .portfolio-project-overlay,
-.portfolio-project-link:hover .portfolio-project-overlay {
-  pointer-events: auto;
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Description = Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового шпионажа и атак на защищённые сервера конкурентов. */
 .portfolio-project-desc {
+  z-index: 3;
+
   padding-top: clamp(15px, 5.3vw, 63px);
-  padding-bottom: clamp(15px, 5.3vw, 63px);
   padding-right: 1.5rem;
+  padding-bottom: clamp(15px, 5.3vw, 63px);
   padding-left: 1.5rem;
-  max-width: 100%;
-  max-height: 100%;
   overflow: hidden;
 
   font-size: 1.125rem; /* 18px */
@@ -1372,39 +1407,42 @@ main > .activities {
 
   background-color: rgba(0, 0, 0, 0.2);
 
-  transition: opacity var(--time) var(--cubic), visibility var(--time) var(--cubic);
-  /* Fixed! Now fading began to be smooth after deleting shitty is-hidden class.
-  I removed all parameters, except visibility, pointer-events and opacity :) */
+  transition: transform var(--time) var(--cubic), opacity var(--time) var(--cubic),
+    visibility var(--time) var(--cubic);
+  /* Fading is smooth after deleting excessive is-hidden parts. */
 }
 
 /* "Бекдроп и Модальное окно скрыто и недоступно для скрин-ридеров до момента нажатия на кнопку-героя" */
 .is-hidden {
-  position: absolute;
+  opacity: 0;
   visibility: hidden; /* MUST HAVE */ /* НЕ ДОСТУПЕН ДЛЯ ЧИТАЛОК. Не выделяется ни мышкой, ни <tab>. Контент прозрачный. Блок в потоке. */
 }
 
 /* Form */
 .modal-window {
+  /* «D8» Появление и скрытие модального окна анимировано при переходе с эффектом, например scale или translate, и opacity. */
+
+  /* transform: translateY(0) scale(0.5); */
   position: relative;
+  top: 50%;
   z-index: 25;
 
-  width: 768px;
-  margin: 48px auto 80px;
-
+  width: clamp(250px, 100%, 528px);
+  min-width: 250px; /* min-w450px, min-h609px */
+  margin: clamp(93px, 33vw, 223px) auto 80px;
+  overflow: hidden;
   background-color: var(--color-white); /* Form bg */
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
     0 2px 1px rgba(0, 0, 0, 0.2);
 
-  /* «D8» Появление и скрытие модального окна анимировано при переходе с эффектом, например scale или translate, и opacity. */
-
-  transform-origin: center;
-  transform: translateY(1%) scale(100%);
+  transform: translateY(-50%);
   transition: transform var(--time) var(--cubic);
+  transform-origin: center;
 }
 
 .backdrop.is-hidden > .modal-window {
-  transform: translateY(-1%) scale(21%); /*  translate(-50%, -50%) */
+  transform: translateY(1020%) scale(50%);
 }
 
 /* ------------------------------------------------------ */
