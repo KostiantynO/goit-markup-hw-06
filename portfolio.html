@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#2f303a" />
     <meta
       name="description"
-      content="Portfolio - showcases WebStudio's works with filters by projects type. The site is a Training project of the GoIT student of FullStack Dev online course"
+      content="Portfolio - showcases WebStudio's projects with filters by projects type. The site is a Training project of the GoIT student of FullStack Dev online course"
     />
 
     <style>
@@ -35,11 +35,11 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
-  <body class="portfolio-body">
-    <!-- Шапка сайта 2021-07-04 01:57 -->
+  <body class="portfolio-body no-scroll">
+    <!-- Шапка сайта 2021-07-06 12:28 -->
     <header class="page-header">
       <!-- Пропустить к Основному Контенту -->
-      <a class="skip-link links" href="#main-content">skip to main content</a>
+      <a class="skip-link links" href="#main-content">Skip to main content</a>
 
       <div class="container">
         <nav class="header-nav">
@@ -49,17 +49,13 @@
 
           <ul class="nav-menu list">
             <li class="nav-menu-item">
-              <a class="nav-link links" href="./" hreflang="ru">Студия</a>
+              <a class="nav-link links current-link" href="./" aria-current="page" hreflang="ru"
+                >Студия</a
+              >
             </li>
 
             <li class="nav-menu-item">
-              <a
-                class="nav-link links current-link"
-                href="./portfolio.html"
-                aria-current="page"
-                hreflang="ru"
-                >Портфолио</a
-              >
+              <a class="nav-link links" href="./portfolio.html" hreflang="ru">Портфолио</a>
             </li>
 
             <li class="nav-menu-item">
@@ -76,7 +72,7 @@
               <use href="./images/icomoon-svgomg/icons.svg#icon-burger"></use>
             </svg>
 
-            <span class="tooltip" id="burger-id-label"> Меню навигации </span>
+            <span class="tooltip" id="burger-id-label" tabindex="-1"> Меню </span>
           </button>
 
           <button
@@ -88,7 +84,7 @@
               <use href="./images/icomoon-svgomg/icons.svg#icon-close-40px"></use>
             </svg>
 
-            <span class="tooltip" id="close-nav-menu-id-label"> Закрыть меню </span>
+            <span class="tooltip" id="close-nav-menu-id-label" tabindex="-1"> Закрыть </span>
           </button>
         </nav>
 
@@ -107,7 +103,9 @@
               >
                 <use href="./images/icomoon-svgomg/icons.svg#icon-envelope"></use>
               </svg>
-              <span class="tooltip" id="devstudio-email-id-label"> Почта студии </span>
+              <span class="tooltip" id="devstudio-email-id-label" tabindex="-1">
+                Почта студии
+              </span>
 
               info@devstudio.com
             </a>
@@ -127,7 +125,9 @@
               >
                 <use href="./images/icomoon-svgomg/icons.svg#icon-smartphone"></use>
               </svg>
-              <span class="tooltip" id="webstudio-phone-id-label"> Мобильный студии </span>
+              <span class="tooltip" id="webstudio-phone-id-label" tabindex="-1">
+                Мобильный студии
+              </span>
               +38 096 111 11 11
             </a>
           </li>
@@ -139,11 +139,14 @@
       <!-- Портфолио -->
       <section class="portfolio section" aria-labelledby="portfolio-title-id">
         <div class="portfolio-container container" id="main-content">
-          <h1 id="portfolio-title-id" class="sr-only">Примеры работ</h1>
+          <h1 class="sr-only" id="portfolio-title-id">
+            Примеры работ
+            <a class="hash-link links" href="#portfolio-title-id" title="Ссылка на заголовок">#</a>
+          </h1>
 
           <!-- Фильтры-кнопки -->
           <div class="portfolio-filters" aria-labelledby="portfolio-filters-title-id">
-            <h2 id="portfolio-filters-title-id" class="sr-only">Фильтры-кнопки по типу проекта</h2>
+            <h2 class="sr-only" id="portfolio-filters-title-id">Фильтры-кнопки по типу проекта</h2>
 
             <ul class="portfolio-filters-list list" role="radiogroup">
               <li class="portfolio-filter-list-item">
@@ -185,7 +188,7 @@
 
           <!-- Список карточек проектов -->
           <div class="portfolio-projects" aria-labelledby="portfolio-projects-title-id">
-            <h2 id="portfolio-projects-title-id" class="sr-only">Список карточек проектов</h2>
+            <h2 class="sr-only" id="portfolio-projects-title-id">Список карточек проектов</h2>
 
             <ul class="portfolio-list list" data-placeholder="Заполнитель">
               <li class="portfolio-list-item">
@@ -204,7 +207,7 @@
                         height="294"
                       />
 
-                      <p class="portfolio-project-desc">
+                      <p class="portfolio-project-desc" tabindex="-1">
                         Технокряк это современная площадка распространения коронавируса. Компании
                         используют эту платформу для цифрового шпионажа и атак на защищённые сервера
                         конкурентов.
@@ -235,7 +238,7 @@
                         height="294"
                       />
 
-                      <p class="portfolio-project-desc">
+                      <p class="portfolio-project-desc" tabindex="-1">
                         Технокряк это современная площадка распространения коронавируса. Компании
                         используют эту платформу для цифрового шпионажа и атак на защищённые сервера
                         конкурентов.
@@ -268,7 +271,7 @@
                         height="294"
                       />
 
-                      <p class="portfolio-project-desc">
+                      <p class="portfolio-project-desc" tabindex="-1">
                         Технокряк это современная площадка распространения коронавируса. Компании
                         используют эту платформу для цифрового шпионажа и атак на защищённые сервера
                         конкурентов.
@@ -301,7 +304,7 @@
                         height="294"
                       />
 
-                      <p class="portfolio-project-desc">
+                      <p class="portfolio-project-desc" tabindex="-1">
                         Технокряк это современная площадка распространения коронавируса. Компании
                         используют эту платформу для цифрового шпионажа и атак на защищённые сервера
                         конкурентов.
@@ -332,7 +335,7 @@
                         height="294"
                       />
 
-                      <p class="portfolio-project-desc">
+                      <p class="portfolio-project-desc" tabindex="-1">
                         Технокряк это современная площадка распространения коронавируса. Компании
                         используют эту платформу для цифрового шпионажа и атак на защищённые сервера
                         конкурентов.
@@ -363,7 +366,7 @@
                         height="294"
                       />
 
-                      <p class="portfolio-project-desc">
+                      <p class="portfolio-project-desc" tabindex="-1">
                         Технокряк это современная площадка распространения коронавируса. Компании
                         используют эту платформу для цифрового шпионажа и атак на защищённые сервера
                         конкурентов.
@@ -396,7 +399,7 @@
                         height="294"
                       />
 
-                      <p class="portfolio-project-desc">
+                      <p class="portfolio-project-desc" tabindex="-1">
                         Технокряк это современная площадка распространения коронавируса. Компании
                         используют эту платформу для цифрового шпионажа и атак на защищённые сервера
                         конкурентов.
@@ -429,7 +432,7 @@
                         height="294"
                       />
 
-                      <p class="portfolio-project-desc">
+                      <p class="portfolio-project-desc" tabindex="-1">
                         Технокряк это современная площадка распространения коронавируса. Компании
                         используют эту платформу для цифрового шпионажа и атак на защищённые сервера
                         конкурентов.
@@ -460,7 +463,7 @@
                         height="294"
                       />
 
-                      <p class="portfolio-project-desc">
+                      <p class="portfolio-project-desc" tabindex="-1">
                         Технокряк это современная площадка распространения коронавируса. Компании
                         используют эту платформу для цифрового шпионажа и атак на защищённые сервера
                         конкурентов.
@@ -482,7 +485,7 @@
       </section>
     </main>
 
-    <!-- Footer Updated on 2021-07-04 19:45 -->
+    <!-- Footer Updated on 2021-07-06 12:29 -->
     <footer class="page-footer">
       <div class="container">
         <div class="footer-address-wrapper">
@@ -499,7 +502,7 @@
                   aria-labelledby="webstudio-map-pointer-id-label"
                   target="_blank"
                 >
-                  <span class="tooltip" id="webstudio-map-pointer-id-label"
+                  <span class="tooltip" id="webstudio-map-pointer-id-label" tabindex="-1"
                     ><span lang="en"> Адрес на Google Maps </span></span
                   >
                   г. Киев, пр-т Леси Украинки, 26
@@ -512,7 +515,9 @@
                   href="mailto:info@example.com"
                   aria-labelledby="webstudio-email-id-label"
                 >
-                  <span class="tooltip" id="webstudio-email-id-label"> Почта инфоотдела </span>
+                  <span class="tooltip" id="webstudio-email-id-label" tabindex="-1">
+                    Инфоотдел
+                  </span>
                   info@example.com
                 </a>
               </li>
@@ -523,7 +528,9 @@
                   href="tel:+380991111111"
                   aria-labelledby="webstudio-phone-id-label"
                 >
-                  <span class="tooltip" id="webstudio-phone-id-label"> Мобильный инфоотдела </span>
+                  <span class="tooltip" id="webstudio-phone-id-label" tabindex="-1">
+                    Мобильный
+                  </span>
 
                   +38 099 111 11 11
                 </a>
@@ -553,7 +560,9 @@
                   <use href="./images/icomoon-svgomg/icons.svg#icon-instagram"></use>
                 </svg>
 
-                <span class="tooltip" id="webstudio-instagram-id-label">Инстаграм</span>
+                <span class="tooltip" id="webstudio-instagram-id-label" tabindex="-1"
+                  >Инстаграм</span
+                >
               </a>
             </li>
 
@@ -573,7 +582,7 @@
                   <use href="./images/icomoon-svgomg/icons.svg#icon-twitter"></use>
                 </svg>
 
-                <span class="tooltip" id="webstudio-twitter-id-label">Твиттер</span>
+                <span class="tooltip" id="webstudio-twitter-id-label" tabindex="-1">Твиттер</span>
               </a>
             </li>
 
@@ -593,7 +602,7 @@
                   <use href="./images/icomoon-svgomg/icons.svg#icon-facebook"></use>
                 </svg>
 
-                <span class="tooltip" id="webstudio-facebook-id-label">Фейсбук</span>
+                <span class="tooltip" id="webstudio-facebook-id-label" tabindex="-1">Фейсбук</span>
               </a>
             </li>
 
@@ -613,10 +622,34 @@
                   <use href="./images/icomoon-svgomg/icons.svg#icon-linkedin"></use>
                 </svg>
 
-                <span class="tooltip" id="webstudio-linkedin-id-label">LinkedIn</span>
+                <span class="tooltip" id="webstudio-linkedin-id-label" tabindex="-1">LinkedIn</span>
               </a>
             </li>
           </ul>
+        </div>
+
+        <div class="subscribe-form-wrapper">
+          <form class="subscribe-form" aria-labelledby="subscribe-title-id" action="#">
+            <p class="subscribe-title" id="subscribe-title-id">Подпишитесь на рассылку</p>
+
+            <input
+              class="subscribe-email-input"
+              id="subscribe-email-input-id"
+              name="email"
+              type="text"
+              placeholder="E-mail"
+              required
+            />
+
+            <label class="subscribe-label tooltip" for="subscribe-email-input-id">
+              Your E-mail
+            </label>
+
+            <button class="subscribe-btn btn btn--primary" id="subscribe-btn-id" type="submit">
+              Подписаться
+            </button>
+            <label class="subscribe-label tooltip" for="subscribe-btn-id"> Your E-mail </label>
+          </form>
         </div>
       </div>
     </footer>
