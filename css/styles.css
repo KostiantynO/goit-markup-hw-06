@@ -56,10 +56,11 @@
 /* || ------------- START "ОБЩИЕ НАСТРОЙКИ" ------------- */
 /* ------------------------------------------------------ */
 .page-html {
+  overflow-x: hidden;
   box-sizing: border-box;
 }
 
-.page-html.no-scroll {
+.no-scroll {
   overflow: hidden;
 }
 
@@ -110,32 +111,6 @@ body {
   transition: transform var(--time) var(--cubic);
 }
 
-.page-header > .skip-link {
-  position: absolute;
-  top: 10px;
-  z-index: -1;
-
-  max-width: 300px;
-  max-height: 50px;
-  padding: 8px;
-  margin-left: 8px;
-  overflow: hidden;
-
-  font-weight: bold;
-  font-size: 1.21rem;
-  line-height: 1.21rem;
-  color: var(--color-text-primary);
-  word-wrap: break-word;
-
-  background-color: var(--color-white);
-  border: 1px solid var(--color-text-secondary);
-  border-radius: 3px;
-}
-
-.skip-link:focus {
-  z-index: 2;
-}
-
 .container {
   min-width: 270px; /* Мин. и макс. ширина контейнера */
   max-width: 1200px;
@@ -179,6 +154,19 @@ body {
   transition: color var(--time) var(--cubic);
 }
 
+/* my-anchor */
+
+.hash-link {
+  position: absolute;
+  padding-left: 0.5rem;
+  opacity: 0;
+}
+
+[class$="-title"]:hover > .hash-link,
+.hash-link:focus {
+  opacity: 1;
+}
+
 /* Шаблон кнопки - "Все", "Веб-сайты", "Приложения", "Дизайн", "Маркетинг", h26px */
 .btn {
   position: relative;
@@ -214,22 +202,21 @@ body {
   z-index: 2;
 
   display: block;
-  max-width: 21rem;
-  max-height: 10rem;
+  width: max-content;
+  max-width: 16rem;
+  max-height: 2rem;
 
   padding: 0.25rem;
   margin-top: 0.25rem;
   overflow: hidden;
+  overflow-y: auto;
 
   font-size: 0.8rem;
   line-height: 1.21;
   color: var(--color-text-primary);
   text-align: center;
-  text-overflow: ellipsis;
   word-wrap: break-word;
-  white-space: nowrap;
 
-  pointer-events: none;
   visibility: hidden;
   border: 1px transparent var(--color-text-secondary);
   opacity: 0;
@@ -246,8 +233,6 @@ body {
 
 :hover > .tooltip,
 :focus > .tooltip {
-  pointer-events: auto;
-  overflow: auto;
   visibility: visible;
   opacity: 1;
   transform: translate(-50%, 4%);
@@ -324,6 +309,36 @@ body {
 
   background-color: var(--color-white);
   border-bottom: 1px solid #ececec; /* Line - Декор линия*/
+}
+
+.page-header .links:focus {
+  outline: var(--color-text-primary) solid 1px;
+}
+
+.page-header > .skip-link {
+  position: absolute;
+  top: 12px;
+  z-index: -1;
+
+  max-width: 300px;
+  max-height: 50px;
+  padding: 8px;
+  margin-left: 8px;
+  overflow: hidden;
+
+  font-weight: bold;
+  font-size: 1.21rem;
+  line-height: 1.21rem;
+  color: var(--color-text-primary);
+  word-wrap: break-word;
+
+  background-color: var(--color-white);
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.skip-link:focus {
+  z-index: 2;
 }
 
 .page-header > .container {
@@ -473,7 +488,7 @@ body {
 
   background-color: var(--color-accent);
   border-radius: 0.125rem;
-  border: 1px solid black;
+  border: 1px solid transparent;
 }
 
 .header-nav > .btn {
@@ -566,39 +581,6 @@ body {
  *
 */
 
-/* START "СКРЫТЫЙ КЛАСС"*/
-body .sr-only {
-  /* В классе "screen readers only" (.sr-only) Для Читалок удалить visibility: hidden; -> и задать элементу (скрытым заголовкам секций) в тег tabindex="0"
-  Тогда контент не выделяется клавишей <таб>.  Контент видно, выделяется мышкой. Блок в потоке. */
-
-  /* Do not size content to 0 pixels if you want the content to be read by a screen reader.
-  * If content styled with font-size:0px or line-height:0, then the elements would still take horizontal space on the screen.
-  * All these techniques may result in search engine penalties as they may be interpreted as malicious. */
-  position: absolute; /* Small */ /* Вытягивает Блок из потока. Сдвигает все элементы страницы выше на высоту блока. Не влияет на сам контент. */
-  top: auto;
-  left: -625rem;
-  width: 1px; /* Useful */ /* Не влияет на строчный контент, а Блочный - меньше, но в потоке. */
-  height: 1px; /* Useful */ /* Не влияет на строчный контент, а Блочный - меньше, но в потоке. */
-  padding: 0; /* small importance */ /* Нет внутренних отступов. Не влияет. */
-  margin: -1px; /* small importance */ /* Нет внешних отступов. Не влияет. */
-
-  overflow: hidden; /* Useful */ /* Обрезает контент если Блочный контейнер имеет высоту|макс. высоту, или white-space: nowrap. */
-  clip-path: inset(100%); /* Useful */ /* Вырезает контент. Блок в потоке. */
-  clip: rect(1px 1px 1px 1px); /* Useful */ /* Старая IE6, IE7, вырезает контент. Блок в потоке. */
-  clip: rect(1px, 1px, 1px, 1px); /* Useful */ /* Старая, вырезает контент. Блок в потоке. */
-
-  font-size: 1px; /* Useful */ /* Уменьшает текстовый контент, можно выделить с другими элементами. Блок меньше, но в потоке. */
-  line-height: 1px; /* Useful */ /* Уменьшает текстовый контент, можно выделить с другими элементами. Блок меньше, но в потоке. */
-  white-space: nowrap; /* small importance */ /* Nowrap - элементы в одной строке не переходят на новую строку. Влияет на overflow. */
-
-  pointer-events: none; /* MUST HAVE */ /* Не выделяется мышкой. Контент видно, выделяется клавишей <tab>. Блок в потоке. */
-
-  border: 0; /* small importance */ /* Нет границы. Сжимает внутрь на 1px. Не влияет. */
-  outline: none; /* small importance */ /* Нет рамки вокруг. Не влияет. */
-  opacity: 0; /* only visual effect */ /* Контент прозрачный (не видно, но можно кликать и выделять). Контент и Блок в потоке. */
-}
-/* END "СКРЫТЫЙ КЛАСС" */
-
 /* START Подсветка ссылок */
 .accent,
 .current-link,
@@ -626,6 +608,8 @@ main > .hero {
   text-align: center;
 
   background-color: var(--color-bg-hero); /* 2F303A */
+
+  /* Img Overlay */
   background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url(../images/squooshed/hero-bg.jpg);
   background-repeat: no-repeat;
@@ -633,25 +617,36 @@ main > .hero {
   background-size: cover;
 }
 
+.hero .links:focus,
+.hero .hero-btn:focus {
+  outline: var(--color-white) solid 1px;
+}
+
 .hero-container {
+  padding-top: clamp(1.5rem, max(3.125vw, 1.5rem), 6.625rem); /* 24px min */
+  padding-bottom: clamp(1.5rem, max(3.125vw, 1.5rem), 6.625rem); /* 106px max / 16 = 6.625rem */
+  padding-left: 15px;
+  padding-right: 15px;
+
   min-height: 12.5rem;
-  /* padding-top: calc((600px - 200px - ((94.08px - 0.08px) * 2)) / 2); = 106px */
-  padding-top: 6.625rem;
-  padding-bottom: 6.625rem;
 }
 
 /* Эффективные решения для вашего бизнеса */
 .hero-container > .hero-title {
-  min-height: 7.5rem;
-
+  position: relative;
+  min-width: clamp(250px, 100%, 696px);
+  min-height: clamp(5.25rem, 1vw, 7.5rem);
   margin-bottom: var(--uni-margin);
 
-  font-size: clamp(1.2em, 5.6vw, 2.75rem);
-  font-weight: 900; /* body: Roboto; браузера: font-style: normal; */
-  line-height: 1.36; /* 60px */
+  font-size: clamp(1.625rem, max(3.38vw, 1.625rem), 2.75rem); /* 26px, 44px */
+  line-height: clamp(2.625rem, max(5.47vw, 2.625rem), 3.75rem); /* 42px, 60px */
+  font-weight: 900;
+
   color: var(--color-white);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  word-wrap: break-word;
+  text-overflow: clip;
 }
 
 /* START Hero-Button */
@@ -678,7 +673,7 @@ main > .hero {
 .hero-container .hero-btn:focus,
 .hero-container .hero-btn:hover,
 .hero-container .hero-btn:active {
-  background-color: #188ce8; /* Цвет Кнопки-героя при фокусе #188ce8 */
+  background-color: #188ce8;
 }
 
 /* END Hero-Button */
@@ -856,6 +851,14 @@ main > .activities {
   background-color: var(--color-bg-secondary);
 }
 
+.activities .links:focus,
+.team .links:focus,
+.team .social-link:focus,
+.portfolio .btn:focus,
+.portfolio .links:focus {
+  outline: var(--color-text-primary) solid 1px;
+}
+
 /* team */
 .designers-list {
   display: flex;
@@ -1004,6 +1007,14 @@ main > .activities {
 /* || ---------------- START "КЛИЕНТЫ" ------------------ */
 /* ------------------------------------------------------ */
 
+.clients .links:focus {
+  outline: var(--color-text-primary) solid 1px;
+}
+
+.clients .client-link:focus {
+  outline: var(--color-text-primary) dotted 1px;
+}
+
 /* Постоянные клиенты */
 .clients-list {
   display: flex;
@@ -1072,6 +1083,12 @@ main > .activities {
   background-color: var(--color-bg-hero);
 }
 
+.page-footer .links:focus,
+.page-footer .social-link:focus,
+.page-footer .btn:focus {
+  outline: var(--color-white) solid 1px;
+}
+
 .page-footer > .container {
   display: flex;
   flex-direction: row;
@@ -1134,6 +1151,41 @@ main > .activities {
   fill: var(--color-white);
 }
 /* END "Футер cоц. ссылки" */
+
+/* START Форма подписки на рассылку */
+.subscribe-form-wrapper {
+  margin-top: var(--uni-margin); /* FIXME */
+  margin-left: var(--uni-margin);
+}
+
+.subscribe-form {
+  padding: 15px; /* FIXME */
+}
+
+.subscribe-title {
+  margin-top: var(--uni-margin); /* FIXME */
+  margin-left: var(--uni-margin);
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.subscribe-email-input {
+  position: relative;
+  margin-top: var(--uni-margin); /* FIXME */
+  margin-left: var(--uni-margin);
+}
+
+.subscribe-form > .subscribe-email-input,
+.subscribe-form > .subscribe-label {
+  width: min(40%, 400px); /* FIXME */
+}
+
+.subscribe-btn {
+  margin-top: var(--uni-margin); /* FIXME */
+  margin-left: var(--uni-margin);
+}
+/* END Форма подписки на рассылку */
+
 /* ------------------------------------------------------ */
 /* || -------------- END "ПОДВАЛ САЙТА" ----------------- */
 /* ------------------------------------------------------ */
@@ -1241,7 +1293,6 @@ main > .activities {
 .portfolio-project-link:hover {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-  outline: none;
 }
 
 .portfolio-card > .links:hover,
@@ -1307,16 +1358,11 @@ main > .activities {
   padding-bottom: clamp(15px, 5.3vw, 63px);
   padding-left: 1.5rem;
   overflow: hidden;
-
+  overflow-y: auto;
   font-size: 1.125rem; /* 18px */
   line-height: 1.56; /* 28px */
   color: var(--color-white);
   letter-spacing: 0.03em;
-}
-
-.portfolio-project-link:focus .portfolio-project-desc,
-.portfolio-project-link:hover .portfolio-project-desc {
-  overflow-y: auto;
 }
 
 .project-title {
@@ -1421,8 +1467,6 @@ main > .activities {
 /* Form */
 .modal-window {
   /* «D8» Появление и скрытие модального окна анимировано при переходе с эффектом, например scale или translate, и opacity. */
-
-  /* transform: translateY(0) scale(0.5); */
   position: relative;
   top: 50%;
   z-index: 25;
@@ -1442,7 +1486,7 @@ main > .activities {
 }
 
 .backdrop.is-hidden > .modal-window {
-  transform: translateY(1020%) scale(50%);
+  transform: translateY(-50%) scale(50%);
 }
 
 /* ------------------------------------------------------ */
@@ -1557,34 +1601,53 @@ main > .activities {
 /* || -------------- END "МОДАЛЬНОЕ ОКНО" --------------- */
 /* ------------------------------------------------------ */
 
-/* Позиционирование */
-/* ...; */
-/* Блочная модель */
-/* ...; */
-/* Типографика */
-/* ...;  */
-/* Отображение */
-/* ...; */
-/* Прочее */
-/* ...; */
+/* START "Скрытый класс для скрин-ридеров"*/
+body .sr-only {
+  /* В классе "screen readers only" (.sr-only) Для Читалок удалить visibility: hidden; -> и задать элементу (скрытым заголовкам секций) в тег tabindex="0"
+  Тогда контент не выделяется клавишей <таб>.  Контент видно, выделяется мышкой. Блок в потоке. */
+
+  /* Do not size content to 0 pixels if you want the content to be read by a screen reader.
+  * If content styled with font-size:0px or line-height:0, then the elements would still take horizontal space on the screen.
+  * All these techniques may result in search engine penalties as they may be interpreted as malicious. */
+  position: absolute; /* Small */ /* Вытягивает Блок из потока. Сдвигает все элементы страницы выше на высоту блока. Не влияет на сам контент. */
+  top: auto;
+  left: -625rem;
+  width: 1px; /* Useful */ /* Не влияет на строчный контент, а Блочный - меньше, но в потоке. */
+  height: 1px; /* Useful */ /* Не влияет на строчный контент, а Блочный - меньше, но в потоке. */
+  padding: 0; /* small importance */ /* Нет внутренних отступов. Не влияет. */
+  margin: -1px; /* small importance */ /* Нет внешних отступов. Не влияет. */
+
+  overflow: hidden; /* Useful */ /* Обрезает контент если Блочный контейнер имеет высоту|макс. высоту, или white-space: nowrap. */
+  clip-path: inset(100%); /* Useful */ /* Вырезает контент. Блок в потоке. */
+  clip: rect(1px 1px 1px 1px); /* Useful */ /* Старая IE6, IE7, вырезает контент. Блок в потоке. */
+  clip: rect(1px, 1px, 1px, 1px); /* Useful */ /* Старая, вырезает контент. Блок в потоке. */
+
+  font-size: 1px; /* Useful */ /* Уменьшает текстовый контент, можно выделить с другими элементами. Блок меньше, но в потоке. */
+  line-height: 1px; /* Useful */ /* Уменьшает текстовый контент, можно выделить с другими элементами. Блок меньше, но в потоке. */
+  white-space: nowrap; /* small importance */ /* Nowrap - элементы в одной строке не переходят на новую строку. Влияет на overflow. */
+
+  pointer-events: none; /* MUST HAVE */ /* Не выделяется мышкой. Контент видно, выделяется клавишей <tab>. Блок в потоке. */
+
+  border: 0; /* small importance */ /* Нет границы. Сжимает внутрь на 1px. Не влияет. */
+  outline: none; /* small importance */ /* Нет рамки вокруг. Не влияет. */
+  opacity: 0; /* only visual effect */ /* Контент прозрачный (не видно, но можно кликать и выделять). Контент и Блок в потоке. */
+}
+/* END "Скрытый класс для скрин-ридеров" */
+
+/* Position, Block model, Typography, Visual, Other */
 
 /* .project-stats-languages {
-  --homework-name: "hw-03-flexbox";
-  --date: "2021-Jun-15 18:55";
-  --CSS: 53.4%;
-  --HTML: 46.0%;
-  --JavaScript: 0.6%;
-  --file-lines-css: 1002;
+  --homework-name: "hw-06";
+  --date: "2021-Jul-05 15:04";
+  --CSS: 40.5%;
+  --HTML: 58.1%;
+  --JavaScript: 1.4%;
+  --file-lines-css: 1608;
 } */
 
 /* ------------------------------------------------------ */
 /* || -------------- START "SITE TESTING" --------------- */
 /* ------------------------------------------------------ */
-
-/* Remove role="img" from all svg that have aria-hidden="true" */
-.svg[aria-hidden="true"][role="img"] {
-  outline: 3px dashed darkred;
-}
 
 /* ------------------------------------------------------ */
 /* || --------------- END "SITE TESTING" ---------------- */
