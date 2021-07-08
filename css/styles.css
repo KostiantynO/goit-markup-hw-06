@@ -52,17 +52,68 @@
 /* || ---------------- END "ПЕРЕМЕННЫЕ" ----------------- */
 /* ------------------------------------------------------ */
 
+/* START Анимация */
+
+/* keep */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(7deg);
+  }
+
+  75% {
+    transform: rotate(-7deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* just for fun */
+@keyframes rotate-box {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.21 scale(0.8);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* END Анимация */
+
 /* ------------------------------------------------------ */
 /* || ------------- START "ОБЩИЕ НАСТРОЙКИ" ------------- */
 /* ------------------------------------------------------ */
 .page-html {
-  overflow-x: hidden;
   box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.no-scroll {
+.page-html.no-scroll {
   overflow: hidden;
 }
+
+.studio-body {
+  overflow-y: scroll;
+}
+
+.studio-body.no-scroll {
+  overflow: hidden; /* STOP MOVING AROUND! */
+}
+
+/* .studio-body.no-scroll {
+} */
 
 *,
 ::before,
@@ -81,13 +132,17 @@ li,
 .links,
 .btn {
   padding: 0;
-  padding-inline-start: 0;
+  margin: 0;
+}
+
+p {
+  /* padding-inline-start: 0;
   padding-inline-end: 0;
   padding-block-start: 0;
   padding-block-end: 0;
-  margin: 0;
+
   margin-inline-start: 0;
-  margin-inline-end: 0;
+  margin-inline-end: 0; */
   margin-block-start: 0;
   margin-block-end: 0;
 }
@@ -96,9 +151,6 @@ li,
 /* Главная */
 
 body {
-  overflow-x: hidden;
-  overflow-y: scroll; /*  STOP MOVING AROUND! */
-
   font-family: Roboto, sans-serif;
   font-size: 14px;
   line-height: 1.71; /* h24px */
@@ -388,23 +440,6 @@ body {
   animation-name: rotate;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(7deg);
-  }
-
-  75% {
-    transform: rotate(-7deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 .web-studio {
   min-height: 26px;
 
@@ -477,7 +512,7 @@ body {
 .current-link::after,
 .nav-link[aria-current="page"]::after {
   position: absolute;
-  top: 3.25rem;
+  top: 3.3125rem;
   left: 0;
   z-index: 15;
 
@@ -702,30 +737,45 @@ main > .features {
 }
 
 .feature-list-item {
-  /* Макс. ширина карточки Features */
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
   flex-basis: calc(100% / var(--cards-per-line-4) - var(--uni-margin));
   flex-grow: 1;
+
   min-width: 15.625rem;
   max-width: 28.125rem;
-
   max-height: 16.735rem; /* 267.76px */
-
   margin-top: var(--uni-margin); /* 30px top and left */
   margin-left: var(--uni-margin);
   overflow: hidden;
+
   word-wrap: break-word;
 }
 
-.feature-svg-wrapper {
+.feature-list-item::before {
+  position: absolute;
+  z-index: 1;
+  top: 0;
   width: 100%;
-  min-height: 7.5rem;
-  padding-top: 1.5625rem;
-  padding-bottom: 1.5625rem;
-  margin-bottom: 1.875rem;
+  height: 7.5rem;
+  content: "";
 
   background-color: var(--color-bg-secondary);
   border-radius: 0.25rem;
-  /* fill: var(--color-text-primary); height: 4.375rem; */
+}
+
+.feature-svg {
+  z-index: 2;
+
+  align-self: center;
+  width: 4.375rem;
+  height: 4.375rem;
+  margin-top: 1.5625rem;
+  margin-bottom: 3.4375rem;
+
   /* .antenna-circle, .clock-ticks, .diagram-bars, .astronaut-stars */
   color: var(--color-accent);
 }
@@ -993,6 +1043,17 @@ main > .activities {
 .social-link:hover {
   color: var(--color-white);
   background-color: var(--color-accent);
+}
+
+.social-link:focus .social-icon,
+.social-link:hover .social-icon {
+  animation-name: rotate-box;
+  animation-duration: var(--time);
+  animation-timing-function: var(--cubic);
+  animation-delay: var(--time);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
 }
 
 .social-icon {
@@ -1415,8 +1476,8 @@ main > .activities {
 /* Тип проекта: Веб-сайт, Дизайн, Приложение, Маркетинг, h30px */
 .portfolio-project-type {
   min-height: var(--uni-margin);
-  max-height: calc(var(--line-height-project-type) * 16px * 2);
-  margin-bottom: 4px;
+  max-height: calc(var(--line-height-project-type) * 1rem * 2);
+  margin-bottom: 0.25rem;
 
   overflow: hidden;
 
@@ -1454,7 +1515,7 @@ main > .activities {
   background-color: rgba(0, 0, 0, 0.2);
 
   transition: transform var(--time) var(--cubic), opacity var(--time) var(--cubic),
-    visibility var(--time) var(--cubic);
+    visibility var(--time) var(--cubic), background-color var(--time) var(--cubic);
   /* Fading is smooth after deleting excessive is-hidden parts. */
 }
 
@@ -1469,24 +1530,24 @@ main > .activities {
   /* «D8» Появление и скрытие модального окна анимировано при переходе с эффектом, например scale или translate, и opacity. */
   position: relative;
   top: 50%;
+  left: 50%;
   z-index: 25;
 
   width: clamp(250px, 100%, 528px);
   min-width: 250px; /* min-w450px, min-h609px */
-  margin: clamp(93px, 33vw, 223px) auto 80px;
   overflow: hidden;
   background-color: var(--color-white); /* Form bg */
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
     0 2px 1px rgba(0, 0, 0, 0.2);
 
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   transition: transform var(--time) var(--cubic);
   transform-origin: center;
 }
 
 .backdrop.is-hidden > .modal-window {
-  transform: translateY(-50%) scale(50%);
+  transform: translateY(-50%) scale(0.5);
 }
 
 /* ------------------------------------------------------ */
