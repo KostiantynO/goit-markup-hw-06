@@ -1,15 +1,39 @@
-var pauseOverlay = document.getElementsByClassName("ytp-pause-overlay");
-var parentPauseOverlay = pauseOverlay.parentNode;
-parentPauseOverlay.removeChild(pauseOverlay);
+function z() {
+  document.getElementById("secondary").parentNode.removeChild(document.getElementById("secondary"));
+}
 
-var right = document.getElementsByTagName("ytm-engagement-panel");
-var parentRight = right.parentNode;
-parentRight.removeChild(right);
+function x() {
+  document.getElementById("comments").parentNode.removeChild(document.getElementById("comments"));
+}
 
-var right = document.getElementById("secondary");
-var parentRight = right.parentNode;
-parentRight.removeChild(right);
+function c() {
+  document
+    .getElementsByClassName("ytp-mdx-popup-dialog")
+    .parentNode.removeChild(document.getElementsByClassName("ytp-mdx-popup-dialog"));
+}
 
-var bottom = document.getElementById("comments");
-var parentBottom = bottom.parentNode;
-parentBottom.removeChild(bottom);
+function tychka() {
+  document
+    .getElementsByClassName("ytp-autonav-endscreen-countdown-container")
+    .parentNode.removeChild(
+      document.getElementsByClassName("ytp-autonav-endscreen-countdown-container"),
+    );
+}
+
+function pauza() {
+  document
+    .getElementsByClassName("html5-endscreen")
+    .parentNode.removeChild(document.getElementsByClassName("html5-endscreen"));
+}
+
+function lotar() {
+  document
+    .getElementsByClassName("ytp-pause-overlay")
+    .parentNode.removeChild(document.getElementsByClassName("ytp-pause-overlay"));
+}
+
+function ult() {
+  document
+    .getElementsByTagName("ytm-engagement-panel")
+    .parentNode.removeChild(document.getElementsByTagName("ytm-engagement-panel"));
+}
