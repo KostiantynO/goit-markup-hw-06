@@ -32,8 +32,8 @@
 
     <title>Студия</title>
 
-    <!-- <link rel="stylesheet" href="./css/styles.css"> -->
-    <link rel="stylesheet" href="./css/styles.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- <link rel="stylesheet" href="./css/styles.min.css" /> -->
   </head>
 
   <body class="studio-body no-scroll" data-no-scroll>
@@ -961,6 +961,10 @@
 
             <button class="subscribe-btn btn btn--primary" id="subscribe-btn-id" type="submit">
               Подписаться
+
+              <svg class="send-icon svg" aria-hidden="true" width="24" height="24">
+                <use href="./images/icomoon-svgomg/icons.svg#icon-send"></use>
+              </svg>
             </button>
             <label class="subscribe-label tooltip" for="subscribe-btn-id"> Your E-mail </label>
           </form>
@@ -971,7 +975,7 @@
     <!-- Backdrop -->
     <div class="backdrop is-hidden" data-modal aria-hidden="true">
       <!-- Модальное окно -->
-      <div class="modal-window" id="modal-window-id" aria-label="Modal window">
+      <div class="modal" id="modal-id" aria-label="Modal window">
         <div class="modal-close-btn-container">
           <button
             class="modal-close-btn btn btn--secondary"
@@ -988,8 +992,10 @@
         </div>
 
         <!-- Форма -->
-        <form class="contact-form" action="#" method="GET">
-          <p class="modal-title">Оставьте свои данные, мы Вам перезвоним</p>
+        <form class="contact-form" aria-labelledby="contact-form-title-id" action="#" method="GET">
+          <h2 class="modal-title" id="contact-form-title-id" tabindex="-1">
+            Оставьте свои данные, мы Вам перезвоним
+          </h2>
 
           <input
             class="contact-form-input"
