@@ -8,6 +8,7 @@
   --color-text-secondary: #757575; /* Вторичный цвет текста #757575 */
   --color-accent: #2196f3; /* Акцент #2196F3, "Web" в Лого */
   --color-bg-hero: #2f303a;
+  --color-bg-hero-btn: #188ce8;
   --color-bg-secondary: #f5f4fa;
   --color-bg-project-card: #eeeeee;
   --color-white: #ffffff; /* h1, portfolio-name& */
@@ -20,6 +21,8 @@
   /* Правый отступ между ссылками Главной навигации, and между ссылками Контактов в Хедере */
   /* Нижний отступ между заголовком h2 и секциями "Чем мы занимаемся" и "Наша команда", and между Фильтрами и Projects */
   --uni-margin-big: 3.125rem;
+
+  --uni-margin-med: 1.25rem;
 
   /* Верхний отступ между адресом и Лого в Футере */
   /* Левый отступ между контейнерами ссылок на соц. сети и адресом в Футере */
@@ -269,6 +272,7 @@ body {
   text-align: center;
   word-wrap: break-word;
 
+  pointer-events: none;
   visibility: hidden;
   border: 1px transparent var(--color-text-secondary);
   opacity: 0;
@@ -311,7 +315,7 @@ body {
 
 .footer-contact > .tooltip {
   left: 100%;
-  white-space: nowrap;
+
   transform: translate(10%, 40%);
 }
 
@@ -323,7 +327,6 @@ body {
 .modal-close-btn > .tooltip {
   left: -3%;
   top: 121%;
-  white-space: normal;
 }
 
 /* Главная кнопка: фон - акцент,  цвет - белый #ffffff. + тень статическая */
@@ -344,7 +347,7 @@ body {
 }
 
 .svg {
-  display: block;
+  display: inline-block;
 }
 
 /* ------------------------------------------------------ */
@@ -369,7 +372,7 @@ body {
 
 .page-header > .skip-link {
   position: absolute;
-  top: 12px;
+  top: 0.75rem;
   z-index: -1;
 
   max-width: 300px;
@@ -708,7 +711,7 @@ main > .hero {
 .hero-container .hero-btn:focus,
 .hero-container .hero-btn:hover,
 .hero-container .hero-btn:active {
-  background-color: #188ce8;
+  background-color: var(--color-bg-hero-btn);
 }
 
 /* END Hero-Button */
@@ -924,20 +927,21 @@ main > .activities {
 /* team card 1-4 or "designer card" */
 .designer-list-item {
   flex-basis: calc(100% / var(--cards-per-line-4) - var(--uni-margin));
-  flex-grow: 1;
-  min-width: 15.625rem;
-  /* width: clamp(); */
-  max-width: 28.125rem;
+  flex-grow: 1; /* FIXME after mobile */
 
+  min-width: 15.625rem;
+  max-width: 28.125rem;
   min-height: 26.75rem; /* 428px */
   max-height: 42.45rem; /* 679.2px */
+
   margin-top: var(--uni-margin); /* 30px top and left */
   margin-left: var(--uni-margin);
-
   word-wrap: break-word;
 }
 
 .designer-card {
+  padding-bottom: 1.5rem;
+
   background-color: var(--color-white); /* card bg */
   border-radius: 0 0 4px 4px;
   /* Тень для Карточки дизайнера (статическая) - material shadow v1 */
@@ -1012,7 +1016,6 @@ main > .activities {
   flex-wrap: wrap;
   justify-content: center;
 
-  padding-bottom: 1.5rem;
   margin-top: -1rem;
   margin-left: -0.625rem;
 }
@@ -1029,7 +1032,7 @@ main > .activities {
   align-items: center;
   justify-content: center;
 
-  padding: 12px;
+  padding: 0.75rem;
 
   color: var(--color-icon);
 
@@ -1050,7 +1053,6 @@ main > .activities {
   animation-name: rotate-box;
   animation-duration: var(--time);
   animation-timing-function: var(--cubic);
-  animation-delay: var(--time);
   animation-iteration-count: 1;
   animation-direction: normal;
   animation-fill-mode: forwards;
@@ -1111,7 +1113,7 @@ main > .activities {
   border-width: 1px;
   border-style: solid;
   border-color: var(--color-icon);
-  border-radius: 4px;
+  border-radius: 0.25rem;
 
   transition: border-color var(--time) var(--cubic);
 }
@@ -1139,8 +1141,8 @@ main > .activities {
 /* || -------------- START "ПОДВАЛ САЙТА" --------------- */
 /* ------------------------------------------------------ */
 .page-footer {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
   background-color: var(--color-bg-hero);
 }
 
@@ -1155,6 +1157,7 @@ main > .activities {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: baseline;
+  justify-content: space-around;
 }
 
 /* START Футер-адрес */ /* .footer-address-wrapper { } */
@@ -1191,12 +1194,14 @@ main > .activities {
 
 /* START "Футер cоц. ссылки" */
 .footer-social-container {
-  margin-left: 70px;
+  margin-left: 4.375rem; /* 70px */
 }
 
 /* присоединяйтесь, h16.41px */
 .footer-social-title {
-  margin-bottom: 20px;
+  /* margin-top: 60px; for mobile only */
+  margin-bottom: var(--uni-margin-med);
+  /* text-align: center; for mobile and tablet only */
 
   font-weight: 700;
   line-height: 1.17; /* from body font-size: 14px; */
@@ -1215,36 +1220,101 @@ main > .activities {
 
 /* START Форма подписки на рассылку */
 .subscribe-form-wrapper {
-  margin-top: var(--uni-margin); /* FIXME */
-  margin-left: var(--uni-margin);
+  margin-left: 5.8125rem; /* 93px for desktop only, mobile = 0; */
 }
 
 .subscribe-form {
-  padding: 15px; /* FIXME */
+  /* text-align: center; for mobile only */
 }
 
+/* Подпишитесь на рассылку */
 .subscribe-title {
-  margin-top: var(--uni-margin); /* FIXME */
-  margin-left: var(--uni-margin);
+  min-width: 13.6875rem;
+  min-height: 1rem;
+  /* margin-top: 60px; */ /* for mobile */
+
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.15;
+
   color: var(--color-white);
   text-transform: uppercase;
 }
 
 .subscribe-email-input {
   position: relative;
-  margin-top: var(--uni-margin); /* FIXME */
-  margin-left: var(--uni-margin);
+  display: inline-flex;
+  flex-grow: 1;
+
+  width: clamp(22.375rem, 4.5vw, 28.125rem);
+  min-width: 22.375rem;
+  min-height: 3.125rem;
+  margin-top: var(--uni-margin-med);
 }
 
-.subscribe-form > .subscribe-email-input,
-.subscribe-form > .subscribe-label {
-  width: min(40%, 400px); /* FIXME */
-}
-
+/* Подписаться */
 .subscribe-btn {
-  margin-top: var(--uni-margin); /* FIXME */
-  margin-left: var(--uni-margin);
+  display: inline-flex;
+  align-items: center;
+
+  padding-top: 10px;
+  padding-right: 28px;
+  padding-bottom: 10px;
+  padding-left: 29px;
+  margin-top: var(--uni-margin-med);
+  margin-left: 0.75rem;
+
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.875; /* = box */
+  letter-spacing: 0.06em;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+
+  transition: background-color var(--time) var(--cubic);
 }
+
+.subscribe-btn:hover,
+.subscribe-btn:focus {
+  background-color: var(--color-bg-hero-btn);
+}
+
+.subscribe-btn .send-icon {
+  margin-left: 10px;
+  fill: currentColor;
+  /* anchor */
+  animation: send-icon-return var(--time) var(--cubic) 1 backwards;
+
+  transform: rotate(-1deg) scale(1);
+  transform-origin: top left;
+  transition: currentColor var(--time) var(--cubic);
+}
+
+.subscribe-btn:hover > .send-icon,
+.subscribe-btn:focus > .send-icon {
+  animation: send-icon-fly var(--time) var(--cubic) 1 forwards;
+}
+
+@keyframes send-icon-fly {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  100% {
+    transform: rotate(-360deg) scale(0.5);
+  }
+}
+
+@keyframes send-icon-return {
+  0% {
+    transform: rotate(360deg) scale(0.5);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
 /* END Форма подписки на рассылку */
 
 /* ------------------------------------------------------ */
@@ -1375,15 +1445,13 @@ main > .activities {
 .project-thumb::before,
 .portfolio-project-desc {
   position: absolute;
-  top: 0;
+  top: 100%;
 
   width: 100%;
   height: 100%;
 
   visibility: hidden;
   opacity: 0;
-
-  transform: translateY(100%);
 
   transition: transform var(--time) var(--cubic), opacity var(--time) var(--cubic),
     visibility var(--time) var(--cubic);
@@ -1401,7 +1469,7 @@ main > .activities {
 .portfolio-project-link:focus .project-thumb::before {
   visibility: visible;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-100%);
 }
 
 .portfolio-image {
@@ -1433,10 +1501,10 @@ main > .activities {
       46px
   );
 
-  padding-top: clamp(10px, 3.5vh, 20px);
-  padding-right: 23px;
-  padding-bottom: 19px;
-  padding-left: 23px;
+  padding-top: clamp(0.625rem, 3.5vh, var(--uni-margin-med));
+  padding-right: 1.4375rem; /* 23xp */
+  padding-bottom: 1.1875rem; /* 19px */
+  padding-left: 1.4375rem;
 
   overflow: hidden;
 
@@ -1513,7 +1581,6 @@ main > .activities {
   overflow-y: auto;
 
   background-color: rgba(0, 0, 0, 0.2);
-
   transition: transform var(--time) var(--cubic), opacity var(--time) var(--cubic),
     visibility var(--time) var(--cubic), background-color var(--time) var(--cubic);
   /* Fading is smooth after deleting excessive is-hidden parts. */
@@ -1521,13 +1588,13 @@ main > .activities {
 
 /* "Бекдроп и Модальное окно скрыто и недоступно для скрин-ридеров до момента нажатия на кнопку-героя" */
 .is-hidden {
-  opacity: 0;
+  pointer-events: none; /* MUST HAVE */ /* Не выделяется мышкой. Контент видно, выделяется клавишей <tab>. For cross-browser no-click. Блок в потоке. */
   visibility: hidden; /* MUST HAVE */ /* НЕ ДОСТУПЕН ДЛЯ ЧИТАЛОК. Не выделяется ни мышкой, ни <tab>. Контент прозрачный. Блок в потоке. */
+  opacity: 0;
 }
 
-/* Form */
-.modal-window {
-  /* «D8» Появление и скрытие модального окна анимировано при переходе с эффектом, например scale или translate, и opacity. */
+/* Modal window */
+.modal {
   position: relative;
   top: 50%;
   left: 50%;
@@ -1535,19 +1602,22 @@ main > .activities {
 
   width: clamp(250px, 100%, 528px);
   min-width: 250px; /* min-w450px, min-h609px */
+  min-height: 300px;
+  padding: 15px;
   overflow: hidden;
+
   background-color: var(--color-white); /* Form bg */
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
     0 2px 1px rgba(0, 0, 0, 0.2);
 
-  transform: translate(-50%, -50%);
-  transition: transform var(--time) var(--cubic);
-  transform-origin: center;
+  transition: transform var(--time) var(--cubic), opacity var(--time) var(--cubic);
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
-.backdrop.is-hidden > .modal-window {
-  transform: translateY(-50%) scale(0.5);
+.backdrop.is-hidden > .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
 }
 
 /* ------------------------------------------------------ */
@@ -1557,6 +1627,7 @@ main > .activities {
   font-size: 14px;
 } */
 
+/* Form */
 .contact-form {
   /* FIXME */
 
@@ -1580,10 +1651,10 @@ main > .activities {
 
 .contact-form-message {
   /* FIXME */
-  padding-top: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  padding-top: var(--uni-margin-med);
+  padding-right: var(--uni-margin-med);
+  padding-bottom: var(--uni-margin-med);
+  padding-left: var(--uni-margin-med);
 
   resize: none;
 }
