@@ -98,7 +98,6 @@
 /* || ------------- START "ОБЩИЕ НАСТРОЙКИ" ------------- */
 /* ------------------------------------------------------ */
 .page-html {
-  box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -113,15 +112,6 @@
 
 .studio-body.no-scroll {
   overflow: hidden; /* STOP MOVING AROUND! */
-}
-
-/* .studio-body.no-scroll {
-} */
-
-*,
-::before,
-::after {
-  box-sizing: inherit;
 }
 
 /* START "Обнуление" */
