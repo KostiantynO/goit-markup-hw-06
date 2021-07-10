@@ -2,3 +2,6 @@ Close a Modal Window when users Click Outside it
 https://techstacker.com/close-modal-click-outside-vanilla-javascript/
 
 https://codepen.io/bradtraversy/pen/zEOrPp?editors=0010
+
+
+<script async src="foobar.js"></script>

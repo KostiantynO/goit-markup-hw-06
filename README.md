@@ -91,3 +91,21 @@ https://stackoverflow.com/questions/tagged/css
   5. Dropdown menus
 
 menu-item posr > submenu posa. opacity=0 and visibility=visible / pointer events auto on hover.
+
+All above. Done 2021-07-08
+
+[Свойства позиционирования]
+https://medium.com/@ArthurFinkler/css-animations-translate-vs-absolute-positioning-and-background-position-dd39fbdeade5
+
+html-css-22 Свойства позиционирования и анимируемые свойства
+- 2d vs 3d трансформации
+- Анимация A -> B -> A
+- Простая кнопка
+- Кнопка c иконкой
+- Пункт меню с выезжающим подчёркиванием
+- Карточка с появляющимся оверлеем
+- Анимация модального окна
+- Перспектива: transform: perspective() vs свойство perspective ->
+https://3dtransforms.desandro.com/perspective Флоп с перспективой.
+
+- Практика https://3dtransforms.desandro.com/card-flip
