@@ -167,8 +167,8 @@
             >
           </h2>
 
-          <ul class="features-list list">
-            <li class="feature-list-item">
+          <ul class="features-list list features-scene">
+            <li class="feature-list-item card">
               <svg class="feature-svg svg" aria-hidden="true" width="70" height="70">
                 <use
                   class="feature-svg-use"
@@ -182,7 +182,7 @@
               </p>
             </li>
 
-            <li class="feature-list-item">
+            <li class="feature-list-item card">
               <svg class="feature-svg svg" aria-hidden="true" width="70" height="70">
                 <use
                   class="feature-svg-use"
@@ -196,7 +196,7 @@
               </p>
             </li>
 
-            <li class="feature-list-item">
+            <li class="feature-list-item card">
               <svg class="feature-svg svg" aria-hidden="true" width="70" height="70">
                 <use
                   class="feature-svg-use"
@@ -210,7 +210,7 @@
               </p>
             </li>
 
-            <li class="feature-list-item">
+            <li class="feature-list-item card">
               <svg class="feature-svg svg" aria-hidden="true" width="70" height="70">
                 <use
                   class="feature-svg-use"
@@ -235,46 +235,104 @@
             <a class="hash-link links" href="#activities-title-id" title="Ссылка на заголовок">#</a>
           </h2>
           <!-- Сжатые *.jpg активностей -->
-          <ul class="activities-list list" data-placeholder="Заполнитель">
-            <li class="activity-list-item">
-              <img
-                class="activity-image image"
-                src="./images/squooshed/activities/activity-1.jpg"
-                alt="Разработчик делает разметку веб-страницы за ноутбуком"
-                width="370"
-                height="294"
-              />
+          <ul class="activities-list list activities-scene" data-placeholder="Заполнитель">
+            <li class="activity-list-item card" data-activity-card tabindex="0">
+              <a
+                class="activity-link flip-front"
+                data-activity-link
+                href="#0"
+                aria-hidden="true"
+                tabindex="-1"
+              >
+                <div class="card__face card__face--front">
+                  <img
+                    class="activity-image image"
+                    src="./images/squooshed/activities/activity-1.jpg"
+                    alt="Разработчик делает разметку веб-страницы за ноутбуком"
+                    width="370"
+                    height="294"
+                  />
+                  <div class="activity-overlay">
+                    <p class="activity-list-label">Десктопные приложения</p>
+                  </div>
+                </div>
+              </a>
 
-              <div class="activity-overlay">
-                <p class="activity-list-label">Десктопные приложения</p>
+              <div class="card__face card__face--back">
+                <p class="activity-description">
+                  Разрабатываем десктопные приложения - делаем FrontEnd (разметку HTML, оформление в
+                  CSS, интерактив на JS) и Backend (логику на NodeJS) для веб-страниц.
+                  <br />
+                  Оптимизируем сайт под основные разрешения - 960px, 1200px, 1600px, 2K и 4K и
+                  делаем отзывчивый дизайн для нестандартных экранов.
+                </p>
               </div>
             </li>
 
-            <li class="activity-list-item">
-              <img
-                class="activity-image image"
-                src="./images/squooshed/activities/activity-2.jpg"
-                alt="Дизайнер сверяет макет UI интерфейса со смартфоном"
-                width="370"
-                height="294"
-              />
+            <li class="activity-list-item card" data-activity-card tabindex="0">
+              <a
+                class="activity-link flip-front"
+                data-activity-link
+                href="#0"
+                aria-hidden="true"
+                tabindex="-1"
+              >
+                <div class="card__face card__face--front">
+                  <img
+                    class="activity-image image"
+                    src="./images/squooshed/activities/activity-2.jpg"
+                    alt="Дизайнер сверяет макет UI интерфейса со смартфоном"
+                    width="370"
+                    height="294"
+                  />
 
-              <div class="activity-overlay">
-                <p class="activity-list-label">Мобильные приложения</p>
+                  <div class="activity-overlay">
+                    <p class="activity-list-label">Мобильные приложения</p>
+                  </div>
+                </div></a
+              >
+
+              <div class="card__face card__face--back">
+                <p class="activity-description">
+                  Разрабатываем мобильные приложения - делаем FrontEnd (HTML, CSS, JS, React) и
+                  Backend (NodeJS) для веб-страниц.
+                  <br />
+                  Адаптивный дизайн для основных экранов: 280px, 320px, 440px, 450px, отзывчивый
+                  дизайн - для промежуточных .
+                </p>
               </div>
             </li>
 
-            <li class="activity-list-item">
-              <img
-                class="activity-image image"
-                src="./images/squooshed/activities/activity-3.jpg"
-                alt="Дизайнер выбирает цвет из палитры на планшете"
-                width="370"
-                height="294"
-              />
+            <li class="activity-list-item card" data-activity-card tabindex="0">
+              <a
+                class="activity-link flip-front"
+                data-activity-link
+                href="#0"
+                aria-hidden="true"
+                tabindex="-1"
+              >
+                <div class="card__face card__face--front">
+                  <img
+                    class="activity-image image"
+                    src="./images/squooshed/activities/activity-3.jpg"
+                    alt="Дизайнер выбирает цвет из палитры на планшете"
+                    width="370"
+                    height="294"
+                  />
 
-              <div class="activity-overlay">
-                <p class="activity-list-label">Дизайнерские решения</p>
+                  <div class="activity-overlay">
+                    <p class="activity-list-label">Дизайнерские решения</p>
+                  </div>
+                </div>
+              </a>
+
+              <div class="card__face card__face--back">
+                <p class="activity-description">
+                  Делаем под заказ уникальные дизайны для сайтов, торговых площадок, галерей,
+                  блогов.
+                  <br />
+                  Готовим адаптивные и отзывчивые версии дизайнов.
+                </p>
               </div>
             </li>
           </ul>
@@ -993,7 +1051,7 @@
 
         <!-- Форма -->
         <form class="contact-form" aria-labelledby="contact-form-title-id" action="#" method="GET">
-          <h2 class="modal-title" id="contact-form-title-id" tabindex="-1">
+          <h2 class="modal-title" id="contact-form-title-id" data-modal-title tabindex="-1">
             Оставьте свои данные, мы Вам перезвоним
           </h2>
 
@@ -1018,11 +1076,11 @@
 
           <input
             class="contact-form-input"
-            id="input-user-phone"
+            id="input-user-tel"
             name="user-phone"
             type="tel"
             title="098-111-11-11"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+            pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
             placeholder="Your phone*"
             required
           />
@@ -1042,7 +1100,7 @@
     </div>
 
     <!-- Скрипт модального окна -->
-    <!-- <script src="./js/modal.js"></script> -->
-    <script async src="./js/modal.min.js"></script>
+    <script src="./js/modal.js"></script>
+    <!-- <script src="./js/modal.min.js" async></script> -->
   </body>
 </html>

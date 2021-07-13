@@ -1,7 +1,6 @@
 /* ------------------------------------------------------ */
 /* || --------------- START "ПЕРЕМЕННЫЕ" ---------------- */
 /* ------------------------------------------------------ */
-
 :root {
   /* || ----------------- START "ПАЛИТРА" ----------------- */
   --color-text-primary: #212121; /* Основной текст #212121 (nav, h2, h3, filters-btn) */
@@ -56,6 +55,7 @@
 /* ------------------------------------------------------ */
 
 /* START Анимация */
+/* opacity, translate, rotate, scale, transform: perspective(400px) rotateY(45deg); */
 
 /* keep */
 @keyframes rotate {
@@ -101,17 +101,14 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-
 .page-html.no-scroll {
-  overflow: hidden;
+  overflow: hidden; /* STOP MOVING AROUND! */
 }
-
 .studio-body {
   overflow-y: scroll;
 }
-
 .studio-body.no-scroll {
-  overflow: hidden; /* STOP MOVING AROUND! */
+  overflow: hidden;
 }
 
 /* START "Обнуление" */
@@ -196,7 +193,7 @@ body {
   color: inherit;
   text-decoration: none;
 
-  transition: color var(--time) var(--cubic);
+  transition: color var(--time) var(--cubic), background-color var(--time) var(--cubic);
 }
 
 /* my-anchor */
@@ -492,13 +489,37 @@ body {
   font-weight: 500;
   line-height: 1.14; /* 16px, color: #2196f3; Hover Focus */
   letter-spacing: 0.02em;
-
   /* white-space: nowrap; */
 }
 
 /* Студия, Портфолио, Контакты */
 .nav-link {
   padding-top: 0.5rem; /* 8px, inherits color: #212121; */
+
+  background: radial-gradient(
+      circle farthest-corner at center center,
+      var(--color-accent),
+      var(--color-text-primary)
+    )
+    no-repeat;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background: radial-gradient(
+      circle farthest-corner at center center,
+      var(--color-accent) 90%,
+      var(--color-text-primary) 10%
+    )
+    no-repeat;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* hover */
@@ -618,6 +639,7 @@ body {
 .links:active {
   color: var(--color-accent); /* Акцент #2196F3 */
 }
+
 /* END Подсветка ссылок */
 /* ------------------------------------------------------ */
 /* || ---------------- END "ШАПКА САЙТА" ---------------- */
@@ -1125,6 +1147,108 @@ main > .activities {
 }
 /* ------------------------------------------------------ */
 /* || ----------------- END "КЛИЕНТЫ" ------------------- */
+/* ------------------------------------------------------ */
+
+/* ------------------------------------------------------ */
+/* || ------------------- START "3D"  ------------------- */
+/* ------------------------------------------------------ */
+
+.features-scene,
+.activities-scene {
+  perspective: 600px;
+}
+
+.card {
+  position: relative;
+
+  width: 370px;
+  height: 294px;
+
+  transform-style: preserve-3d;
+
+  transition: transform var(--time) var(--cubic);
+}
+
+.features-scene > .card:nth-child(1) {
+  transform: rotateY(3deg) scale3d(1.021, 1.021, 1);
+}
+
+.features-scene > .card:nth-child(2) {
+  transform: rotateY(2.1deg) scale3d(1.021, 1.021, 1);
+}
+.features-scene > .card:nth-child(3) {
+  transform: rotateY(-2.1deg) scale3d(1.021, 1.021, 1);
+}
+.features-scene > .card:nth-child(4) {
+  transform: rotateY(-3deg) scale3d(1.021, 1.021, 1);
+}
+
+.activity-list-item:hover .card__face,
+.activity-list-item:focus .card__face {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.activity-list-item:hover .card__face--back,
+.activity-list-item:focus .card__face--back {
+  transform: rotateY(0deg);
+}
+
+.activity-list-item:focus {
+  outline: 1px solid var(--color-text-primary);
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+  position: absolute; /* .activity-list-item {position: relative;} */
+  width: 100%;
+  height: 100%;
+
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 260px;
+  color: white;
+  text-align: center;
+
+  transition: transform var(--time) var(--cubic);
+  transform-origin: center right;
+}
+
+.card__face--front {
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  backface-visibility: hidden;
+}
+
+.card__face > .activity-link {
+  color: inherit;
+  display: block;
+}
+
+.card__face--back {
+  top: 0;
+  padding: 21px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.17;
+
+  letter-spacing: 0.06em;
+
+  color: var(--color-white);
+
+  background-color: var(--color-bg-hero);
+  /* transform: rotateY(180deg); */
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+/* ------------------------------------------------------ */
+/* || -------------------- END "3D"  -------------------- */
 /* ------------------------------------------------------ */
 
 /* ------------------------------------------------------ */
@@ -1700,6 +1824,10 @@ main > .activities {
   background-color: var(--color-white);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+}
+
+.modal-close-icon {
+  transition: fill var(--time) var(--cubic);
 }
 
 .modal-close-btn:hover > .modal-close-icon,
