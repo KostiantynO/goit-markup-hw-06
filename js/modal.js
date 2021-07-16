@@ -13,11 +13,6 @@
       refs.htmlAndBody[1].classList.toggle("no-scroll");
   }
 
-  var card = document.querySelector(".card");
-  card.addEventListener("click", function () {
-    card.classList.toggle("is-flipped");
-  });
-
   refs.openModalBtn.addEventListener("click", function () {
     toggleModal(), refs.modalTitle.focus();
   }),

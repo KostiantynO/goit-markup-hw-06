@@ -46,6 +46,18 @@
   /* || ------------------ END "ОТСТУПЫ" ------------------ */
 
   /* || ---------------- START "АНИМАЦИЯ" ----------------- */
+
+  --zi-1: 1;
+  --zi-2: 2;
+  --zi-3: 3;
+  --zi-4: 4;
+  --zi-5: 5;
+  --zi-6: 6;
+  --zi-7: 7;
+  --zi-8: 8;
+  --zi-9: 9;
+  --zi-10: 10;
+
   --time: 250ms;
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
   /* || ----------------- END "АНИМАЦИЯ" ------------------ */
@@ -92,6 +104,16 @@
   }
 }
 
+@keyframes scalingUp {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(100%);
+  }
+}
+
 /* END Анимация */
 
 /* ------------------------------------------------------ */
@@ -109,6 +131,9 @@
 }
 .studio-body.no-scroll {
   overflow: hidden;
+}
+.portfolio-body {
+  overflow-x: hidden;
 }
 
 /* START "Обнуление" */
@@ -193,7 +218,8 @@ body {
   color: inherit;
   text-decoration: none;
 
-  transition: color var(--time) var(--cubic), background-color var(--time) var(--cubic);
+  transition: color var(--time) var(--cubic), background-color var(--time) var(--cubic),
+    background-clip var(--time) var(--cubic);
 }
 
 /* my-anchor */
@@ -241,7 +267,7 @@ body {
   position: absolute;
   top: 100%;
   left: 50%;
-  z-index: 2;
+  z-index: var(--zi-5);
 
   display: block;
   width: max-content;
@@ -345,22 +371,12 @@ body {
 /* || --------------- START "ШАПКА САЙТА" --------------- */
 /* ------------------------------------------------------ */
 
-.page-header {
-  padding-top: 24px;
-  padding-bottom: 24px;
-
-  background-color: var(--color-white);
-  border-bottom: 1px solid #ececec; /* Line - Декор линия*/
-}
-
-.page-header .links:focus {
-  outline: var(--color-text-primary) solid 1px;
-}
-
-.page-header > .skip-link {
+body > .skip-link {
   position: absolute;
-  top: 0.75rem;
-  z-index: -1;
+  top: 0;
+  left: 0;
+
+  z-index: var(--zi-2);
 
   max-width: 300px;
   max-height: 50px;
@@ -377,10 +393,27 @@ body {
   background-color: var(--color-white);
   border: 1px solid transparent;
   border-radius: 3px;
+
+  transform: translateY(-100%);
+  transition: transform var(--time) var(--cubic);
 }
 
 .skip-link:focus {
-  z-index: 2;
+  transform: translateY(21%);
+}
+
+.page-header {
+  position: relative;
+  z-index: var(--zi-1);
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  background-color: var(--color-white);
+  border-bottom: 1px solid #ececec; /* Line - Декор линия*/
+}
+
+.page-header .links:focus {
+  outline: var(--color-text-primary) solid 1px;
 }
 
 .page-header > .container {
@@ -494,33 +527,57 @@ body {
 
 /* Студия, Портфолио, Контакты */
 .nav-link {
-  padding-top: 0.5rem; /* 8px, inherits color: #212121; */
+  display: inline-block;
+  padding-top: 0.5rem; /* 8px */
 
-  background: radial-gradient(
-      circle farthest-corner at center center,
-      var(--color-accent),
-      var(--color-text-primary)
-    )
-    no-repeat;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-decoration: none;
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  background: radial-gradient(
-      circle farthest-corner at center center,
-      var(--color-accent) 90%,
-      var(--color-text-primary) 10%
-    )
-    no-repeat;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.nav-link::before,
+.nav-link > span {
+  position: absolute;
+  inset: 0;
+
+  display: inline-block;
+  mix-blend-mode: screen;
+
+  transition: transform var(--time) var(--cubic);
 }
+
+.nav-link::before {
+  content: "";
+}
+
+.nav-link:hover::before,
+.nav-link > span {
+  transform: scaleX(100%);
+}
+
+.nav-link::before,
+.nav-link:hover > span {
+  transform: scaleX(0);
+}
+
+/* Result: link color = #2196f3 (accent) */
+.nav-link {
+  color: #000000;
+  background-color: var(--color-white);
+}
+
+.nav-link::before {
+  background-color: var(--color-accent);
+}
+
+/* Result: #212121 color on link */
+.nav-link > span {
+  background-color: var(--color-text-primary);
+}
+
+/*
+
+
+
+ */
 
 /* hover */
 .current-link::after,
@@ -528,7 +585,6 @@ body {
   position: absolute;
   top: 3.3125rem;
   left: 0;
-  z-index: 15;
 
   min-width: 100%;
   min-height: 0.25rem;
@@ -631,12 +687,10 @@ body {
 */
 
 /* START Подсветка ссылок */
+
 .accent,
-.current-link,
-[aria-current="page"],
 .links:hover,
-.links:focus,
-.links:active {
+.links:focus {
   color: var(--color-accent); /* Акцент #2196F3 */
 }
 
@@ -758,7 +812,7 @@ main > .features {
   flex-direction: column;
 
   flex-basis: calc(100% / var(--cards-per-line-4) - var(--uni-margin));
-  flex-grow: 1;
+  /* flex-grow: 1; FIXME for mobile */
 
   min-width: 15.625rem;
   max-width: 28.125rem;
@@ -772,7 +826,7 @@ main > .features {
 
 .feature-list-item::before {
   position: absolute;
-  z-index: 1;
+  z-index: var(--zi-1);
   top: 0;
   width: 100%;
   height: 7.5rem;
@@ -783,7 +837,7 @@ main > .features {
 }
 
 .feature-svg {
-  z-index: 2;
+  z-index: var(--zi-2);
 
   align-self: center;
   width: 4.375rem;
@@ -860,8 +914,6 @@ main > .activities {
 
   justify-content: center;
 
-  overflow: hidden;
-
   margin-top: var(--uni-margin);
   margin-left: var(--uni-margin);
 }
@@ -921,7 +973,7 @@ main > .activities {
 .team .social-link:focus,
 .portfolio .btn:focus,
 .portfolio .links:focus {
-  outline: var(--color-text-primary) solid 1px;
+  outline: 1px solid var(--color-text-primary);
 }
 
 /* team */
@@ -939,7 +991,7 @@ main > .activities {
 /* team card 1-4 or "designer card" */
 .designer-list-item {
   flex-basis: calc(100% / var(--cards-per-line-4) - var(--uni-margin));
-  flex-grow: 1; /* FIXME after mobile */
+  /* flex-grow: 1; FIXME for mobile */
 
   min-width: 15.625rem;
   max-width: 28.125rem;
@@ -1107,7 +1159,7 @@ main > .activities {
   flex-basis: calc(100% / var(--cards-per-line-6) - var(--uni-margin)); /* 6 cards */
   min-width: 10.625rem;
   max-width: 14.125rem;
-  flex-grow: 1;
+  /* flex-grow: 1; FIXME for mobile */
 
   height: 5.75rem;
   margin-top: var(--uni-margin); /* 30px top and left */
@@ -1147,108 +1199,6 @@ main > .activities {
 }
 /* ------------------------------------------------------ */
 /* || ----------------- END "КЛИЕНТЫ" ------------------- */
-/* ------------------------------------------------------ */
-
-/* ------------------------------------------------------ */
-/* || ------------------- START "3D"  ------------------- */
-/* ------------------------------------------------------ */
-
-.features-scene,
-.activities-scene {
-  perspective: 600px;
-}
-
-.card {
-  position: relative;
-
-  width: 370px;
-  height: 294px;
-
-  transform-style: preserve-3d;
-
-  transition: transform var(--time) var(--cubic);
-}
-
-.features-scene > .card:nth-child(1) {
-  transform: rotateY(3deg) scale3d(1.021, 1.021, 1);
-}
-
-.features-scene > .card:nth-child(2) {
-  transform: rotateY(2.1deg) scale3d(1.021, 1.021, 1);
-}
-.features-scene > .card:nth-child(3) {
-  transform: rotateY(-2.1deg) scale3d(1.021, 1.021, 1);
-}
-.features-scene > .card:nth-child(4) {
-  transform: rotateY(-3deg) scale3d(1.021, 1.021, 1);
-}
-
-.activity-list-item:hover .card__face,
-.activity-list-item:focus .card__face {
-  transform: translateX(-100%) rotateY(-180deg);
-}
-
-.activity-list-item:hover .card__face--back,
-.activity-list-item:focus .card__face--back {
-  transform: rotateY(0deg);
-}
-
-.activity-list-item:focus {
-  outline: 1px solid var(--color-text-primary);
-}
-
-.card.is-flipped {
-  transform: translateX(-100%) rotateY(-180deg);
-}
-
-.card__face {
-  position: absolute; /* .activity-list-item {position: relative;} */
-  width: 100%;
-  height: 100%;
-
-  font-size: 40px;
-  font-weight: bold;
-  line-height: 260px;
-  color: white;
-  text-align: center;
-
-  transition: transform var(--time) var(--cubic);
-  transform-origin: center right;
-}
-
-.card__face--front {
-  width: 100%;
-  height: 100%;
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-  backface-visibility: hidden;
-}
-
-.card__face > .activity-link {
-  color: inherit;
-  display: block;
-}
-
-.card__face--back {
-  top: 0;
-  padding: 21px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  line-height: 1.17;
-
-  letter-spacing: 0.06em;
-
-  color: var(--color-white);
-
-  background-color: var(--color-bg-hero);
-  /* transform: rotateY(180deg); */
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-}
-/* ------------------------------------------------------ */
-/* || -------------------- END "3D"  -------------------- */
 /* ------------------------------------------------------ */
 
 /* ------------------------------------------------------ */
@@ -1355,14 +1305,15 @@ main > .activities {
   text-transform: uppercase;
 }
 
-.subscribe-email-input {
+.subscribe-input {
   position: relative;
   display: inline-flex;
   flex-grow: 1;
+  flex-basis: calc(100% - var(--uni-med) / 1);
 
-  width: clamp(22.375rem, 4.5vw, 28.125rem);
-  min-width: 22.375rem;
-  min-height: 3.125rem;
+  /* TODO Kostiatyn Ochenash 2021-07-15: ADD FONT FROM MOCKUP */
+
+  /* min-height: 3.125rem; */
   margin-top: var(--uni-margin-med);
 }
 
@@ -1547,7 +1498,6 @@ main > .activities {
 
 .project-thumb {
   position: relative;
-  object-fit: contain;
 
   width: 100%;
   height: 100%;
@@ -1572,7 +1522,7 @@ main > .activities {
 }
 
 .project-thumb::before {
-  z-index: 2;
+  z-index: var(--zi-2);
   content: "";
   background-color: rgba(33, 150, 243, 0.9);
 }
@@ -1594,7 +1544,7 @@ main > .activities {
 
 /* Description = Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового шпионажа и атак на защищённые сервера конкурентов. */
 .portfolio-project-desc {
-  z-index: 3;
+  z-index: var(--zi-3);
 
   padding-top: clamp(15px, 5.3vw, 63px);
   padding-right: 1.5rem;
@@ -1687,7 +1637,7 @@ main > .activities {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 20;
+  z-index: var(--zi-7);
 
   width: 100vw;
   height: 100vh;
@@ -1700,19 +1650,11 @@ main > .activities {
   /* Fading is smooth after deleting excessive is-hidden parts. */
 }
 
-/* "Бекдроп и Модальное окно скрыто и недоступно для скрин-ридеров до момента нажатия на кнопку-героя" */
-.is-hidden {
-  pointer-events: none; /* MUST HAVE */ /* Не выделяется мышкой. Контент видно, выделяется клавишей <tab>. For cross-browser no-click. Блок в потоке. */
-  visibility: hidden; /* MUST HAVE */ /* НЕ ДОСТУПЕН ДЛЯ ЧИТАЛОК. Не выделяется ни мышкой, ни <tab>. Контент прозрачный. Блок в потоке. */
-  opacity: 0;
-}
-
 /* Modal window */
 .modal {
   position: relative;
   top: 50%;
   left: 50%;
-  z-index: 25;
 
   width: clamp(250px, 100%, 528px);
   min-width: 250px; /* min-w450px, min-h609px */
@@ -1730,83 +1672,20 @@ main > .activities {
 }
 
 .backdrop.is-hidden > .modal {
-  transform: translate(-50%, -50%) scale(0.5);
   opacity: 0;
-}
 
-/* ------------------------------------------------------ */
-/* || ------------- START "СТУДИЯ - ФОРМА" -------------- */
-/* ------------------------------------------------------ */
-/* .contact-form-head {
-  font-size: 14px;
-} */
-
-/* Form */
-.contact-form {
-  /* FIXME */
-
-  max-width: 600px;
-  padding-top: 40px;
-  padding-right: 40px;
-  padding-bottom: 40px;
-  padding-left: 40px;
-
-  /* BUG */
-  margin-right: auto;
-  margin-left: auto;
-
-  /* FIXME */
-  border-width: 1px;
-  border-style: solid;
-  border-color: #cccccc;
-
-  outline: 1px blueviolet solid;
-}
-
-.contact-form-message {
-  /* FIXME */
-  padding-top: var(--uni-margin-med);
-  padding-right: var(--uni-margin-med);
-  padding-bottom: var(--uni-margin-med);
-  padding-left: var(--uni-margin-med);
-
-  resize: none;
-}
-
-.contact-form-message::placeholder {
-  /* FIXME */
-  padding-top: 1px;
-  padding-right: 1px;
-  padding-bottom: 1px;
-  padding-left: 1px;
-
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-  background-color: var(--color-white);
-}
-/* ------------------------------------------------------ */
-/* || -------------- END "СТУДИЯ - ФОРМА" --------------- */
-/* ------------------------------------------------------ */
-
-/*
-
-
-
-
-
- */
-.modal-form-input {
-  min-width: 40px;
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal-close-btn-container {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  outline: 2px dotted goldenrod;
 
   font-size: 1rem;
   line-height: 1.875rem;
+
+  outline: 2px dotted goldenrod;
 }
 
 /* Ellipse 1 */
@@ -1815,12 +1694,12 @@ main > .activities {
   align-items: center;
   justify-content: center;
 
-  min-height: 1.875rem;
   min-width: 1.875rem;
   max-width: 1.875rem;
+  min-height: 1.875rem;
   max-height: 1.875rem;
-  padding: 0;
 
+  padding: 0;
   background-color: var(--color-white);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
@@ -1832,24 +1711,104 @@ main > .activities {
 
 .modal-close-btn:hover > .modal-close-icon,
 .modal-close-btn:focus > .modal-close-icon {
-  fill: var(--color-accent);
+  fill: currentColor;
 }
+
 .modal-close-btn:hover,
 .modal-close-btn:focus {
+  color: var(--color-accent);
   background-color: var(--color-white);
   box-shadow: none;
 }
 
-.form-btn-container {
-  justify-content: flex-end;
+/* ------------------------------------------------------ */
+/* || ------------- START "СТУДИЯ - ФОРМА" -------------- */
+
+.form {
+  min-width: 250px;
+  max-width: 528px;
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+
+  outline: 1px solid tomato;
 }
 
-.contact-form-btn {
-  margin-right: 5px;
+.group {
+  margin-bottom: 20px;
 }
+
+.group-title {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+
+  outline: 1px solid blue;
+  outline-offset: 1px;
+}
+
+.form-field .form-label {
+  margin-bottom: 5px;
+}
+
+.form-field .form-input {
+  padding: 6px 10px;
+  margin: 0;
+
+  border: 1px solid var(--color-text-primary);
+  border-radius: 3px;
+}
+
+.form-field .form-input::placeholder {
+  color: var(--color-text-primary);
+}
+
+.form-svg {
+  position: absolute;
+  padding: 8px;
+}
+
+.form-svg {
+  fill: currentColor;
+}
+
+.form-field .form-input:focus {
+  color: var(--color-accent);
+}
+
+.form-input[type="checkbox"] {
+  /* for later} */
+}
+
+.form-comment {
+  padding: 8px;
+  resize: none;
+}
+
+.submit-btn-wrapper {
+  text-align: center;
+}
+
+/* || -------------- END "СТУДИЯ - ФОРМА" --------------- */
+/* ------------------------------------------------------ */
+
 /* ------------------------------------------------------ */
 /* || -------------- END "МОДАЛЬНОЕ ОКНО" --------------- */
 /* ------------------------------------------------------ */
+
+/* "Мобильное меню, Бекдроп и Модальное окно скрыто от всех (и скрин-ридеров) до нажатия на кнопку-героя" */
+.is-hidden {
+  pointer-events: none; /* MUST HAVE */ /* Не выделяется мышкой. Контент видно, выделяется клавишей <tab>. For cross-browser no-click. Блок в потоке. */
+  visibility: hidden; /* MUST HAVE */ /* НЕ ДОСТУПЕН ДЛЯ ЧИТАЛОК. Не выделяется ни мышкой, ни <tab>. Контент прозрачный. Блок в потоке. */
+  opacity: 0;
+}
 
 /* START "Скрытый класс для скрин-ридеров"*/
 body .sr-only {

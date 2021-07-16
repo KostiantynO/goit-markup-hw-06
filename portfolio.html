@@ -37,11 +37,11 @@
   </head>
 
   <body class="portfolio-body no-scroll">
-    <!-- Шапка сайта 2021-07-06 12:28 -->
-    <header class="page-header">
-      <!-- Пропустить к Основному Контенту -->
-      <a class="skip-link links" href="#main-content">Skip to main content</a>
+    <!-- Пропустить к Основному Контенту -->
+    <a class="skip-link links" href="#main-content">Skip to main content</a>
 
+    <!-- Шапка сайта 2021-07-15 11:36 -->
+    <header class="page-header">
       <div class="container">
         <nav class="header-nav">
           <a class="logo links" href="./" hreflang="ru" lang="en">
@@ -50,27 +50,36 @@
 
           <ul class="nav-menu list">
             <li class="nav-menu-item">
-              <a class="nav-link links" href="./" hreflang="ru">Студия</a>
+              <a data-content="Студия" class="nav-link" href="./" hreflang="ru"
+                >Студия<span class="nav-link-span"></span>
+              </a>
             </li>
 
             <li class="nav-menu-item">
               <a
-                class="nav-link links current-link"
+                data-content="Портфолио"
+                class="nav-link current-link"
                 href="./portfolio.html"
                 aria-current="page"
                 hreflang="ru"
-                >Портфолио</a
-              >
+                >Портфолио<span class="nav-link-span"></span
+              ></a>
             </li>
 
             <li class="nav-menu-item">
-              <a class="nav-link links" rel="noopener nofollow noreferrer" href="#0">Контакты</a>
+              <a
+                data-content="Контакты"
+                class="nav-link"
+                rel="noopener nofollow noreferrer"
+                href="#0"
+                >Контакты<span class="nav-link-span"></span
+              ></a>
             </li>
           </ul>
 
           <button
-            class="btn btn--secondary is-hidden"
             type="button"
+            class="btn btn--secondary is-hidden"
             aria-labelledby="burger-id-label"
           >
             <svg class="header-nav-icon svg icon-burger" aria-hidden="true" width="40" height="40">
@@ -81,8 +90,8 @@
           </button>
 
           <button
-            class="btn btn--secondary is-hidden"
             type="button"
+            class="btn btn--secondary is-hidden"
             aria-labelledby="close-nav-menu-id-label"
           >
             <svg class="header-nav-icon svg icon-close" aria-hidden="true" width="40" height="40">
