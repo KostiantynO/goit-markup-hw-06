@@ -98,6 +98,7 @@ All above. Done 2021-07-08
 https://medium.com/@ArthurFinkler/css-animations-translate-vs-absolute-positioning-and-background-position-dd39fbdeade5
 
 html-css-22 Свойства позиционирования и анимируемые свойства
+
 - 2d vs 3d трансформации
 - Анимация A -> B -> A
 - Простая кнопка
@@ -106,6 +107,6 @@ html-css-22 Свойства позиционирования и анимиру�
 - Карточка с появляющимся оверлеем
 - Анимация модального окна
 - Перспектива: transform: perspective() vs свойство perspective ->
-https://3dtransforms.desandro.com/perspective Флоп с перспективой.
+  https://3dtransforms.desandro.com/perspective Флоп с перспективой.
 
 - Практика https://3dtransforms.desandro.com/card-flip

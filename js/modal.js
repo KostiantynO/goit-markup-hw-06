@@ -15,6 +15,9 @@
 
   refs.openModalBtn.addEventListener("click", function () {
     toggleModal(), refs.modalTitle.focus();
+    var dummyEl = document.getElementById("form-title-id");
+    var isFocused = document.activeElement === dummyEl;
+    console.log(`form-title-id isFocused: ${isFocused}`);
   }),
     refs.closeModalBtn.addEventListener("click", toggleModal),
     refs.modal.addEventListener("click", function (event) {
