@@ -40,7 +40,7 @@
     <!-- Пропустить к Основному Контенту -->
     <a class="skip-link links" href="#main-content">Skip to main content</a>
 
-    <!-- Шапка сайта 2021-07-15 11:36 -->
+    <!-- Шапка сайта 2021-07-17 11:46 -->
     <header class="page-header">
       <div class="container">
         <nav class="header-nav">
@@ -769,7 +769,7 @@
       </section>
     </main>
 
-    <!-- Footer Updated on 2021-07-06 12:29 -->
+    <!-- Footer Updated on 2021-07-17 11:48 -->
     <footer class="page-footer">
       <div class="container">
         <div class="footer-address-wrapper">
@@ -927,6 +927,7 @@
                   name="subscribe-user-email"
                   class="subscribe-input"
                   id="subscribe-user-email-id"
+                  maxlength="80"
                   placeholder="E-mail"
                   required
                 />
@@ -953,7 +954,7 @@
     <!-- Backdrop (Overlay) -->
     <div class="backdrop is-hidden" data-modal>
       <!-- Модальное окно -->
-      <div role="dialog" aria-modal="true" class="modal" id="modal-id" aria-label="Modal window">
+      <div class="modal" id="modal-id" role="dialog" aria-label="Modal window" aria-modal="true">
         <!-- Кнопка "Закрыть" (close) -->
         <div class="modal-close-btn-container">
           <button
@@ -979,16 +980,19 @@
           <!-- Вводим имя, телефон и почту (Inputs) -->
           <div class="group user-info">
             <div class="form-field">
-              <label class="form-label" for="user-name-id" aria-label="Ваше имя">Имя</label>
-
               <input
                 type="text"
                 name="user-name"
                 class="form-input"
                 id="user-name-id"
+                title="Максимум 80 символов"
+                placeholder=" "
                 autofocus
                 required
+                maxlength="80"
               />
+
+              <label class="form-label" for="user-name-id" aria-label="Ваше имя">Имя</label>
 
               <div class="svg-wrapper">
                 <svg class="form-svg" aria-hidden="true" width="18" height="18">
@@ -998,9 +1002,19 @@
             </div>
 
             <div class="form-field">
-              <label class="form-label" for="user-tel-id" aria-label="Ваш телефон">Телефон</label>
+              <input
+                type="tel"
+                name="user-tel"
+                class="form-input"
+                id="user-tel-id "
+                title="0123456789"
+                placeholder=" "
+                required
+                pattern="[0-9]{10}"
+                maxlength="10"
+              />
 
-              <input type="tel" name="user-tel" class="form-input" id="user-tel-id " required />
+              <label class="form-label" for="user-tel-id" aria-label="Ваш телефон"> Телефон </label>
 
               <div class="svg-wrapper">
                 <svg class="form-svg" aria-hidden="true" width="18" height="18">
@@ -1010,15 +1024,18 @@
             </div>
 
             <div class="form-field">
-              <label class="form-label" for="user-email-id" aria-label="Ваша почта">Почта</label>
-
               <input
                 type="email"
                 name="user-email"
                 class="form-input"
                 id="user-email-id"
+                title="Содержит два символа разделенных @. Максимум 80 символов"
+                maxlength="80"
+                placeholder=" "
                 required
               />
+
+              <label class="form-label" for="user-email-id" aria-label="Ваша почта">Почта</label>
 
               <div class="svg-wrapper">
                 <svg class="form-svg" aria-hidden="true" width="18" height="18">
@@ -1054,10 +1071,10 @@
 
             <label class="form-label" for="policy-id"
               ><div
-                title="Пожалуйста, установите этот флажок, если Вы хотите продолжить."
                 class="custom-checkbox"
+                title="Пожалуйста, установите этот флажок, если Вы хотите продолжить."
               >
-                <svg class="form-svg check-icon" width=" 11.4" height="8.4" aria-hidden="true">
+                <svg class="form-svg check-icon" aria-hidden="true" width=" 11.4" height="8.4">
                   <use href="./images/icomoon-svgomg/icons.svg#icon-check"></use>
                 </svg>
               </div>
