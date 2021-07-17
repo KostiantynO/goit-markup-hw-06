@@ -1329,14 +1329,15 @@ main > .activities {
 
   min-width: 22.375rem; /* 358px */
   min-height: 3.125rem; /* 50px */
+  padding: 0.75rem; /* 12px */
+  margin-right: 0.75rem; /* margin-top: var(--uni-margin-med); for mobile */
 
   font-size: 1rem;
   line-height: 1.25rem;
-  padding: 0.75rem; /* 12px */
-  margin-right: 0.75rem; /* margin-top: var(--uni-margin-med); for mobile */
+  color: #ffffff;
   letter-spacing: 0.03em;
-  background-color: var(--color-bg-hero);
 
+  background-color: var(--color-bg-hero);
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
