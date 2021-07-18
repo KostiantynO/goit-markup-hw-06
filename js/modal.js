@@ -3,6 +3,11 @@
     openModalBtn: document.querySelector("[data-modal-open]"),
     closeModalBtn: document.querySelector("[data-modal-close]"),
     modal: document.querySelector("[data-modal]"),
+    modalElements: document
+      .querySelector("[data-modal]")
+      .querySelectorAll(
+        "button, a[href], input, select, textarea, [tabindex]:not([tabindex='-1'])",
+      ),
     modalTitle: document.querySelector("[data-modal-title]"),
     htmlAndBody: document.querySelectorAll("[data-no-scroll]"),
   };
@@ -14,13 +19,34 @@
   }
 
   refs.openModalBtn.addEventListener("click", function () {
-    toggleModal(), refs.modalTitle.focus();
-    var dummyEl = document.getElementById("form-title-id");
-    var isFocused = document.activeElement === dummyEl;
-    console.log(`form-title-id isFocused: ${isFocused}`);
+    refs.modal.classList.contains("is-hidden") &&
+      (toggleModal(),
+      /* Чарівництво */
+      setTimeout(() => {
+        refs.modal.focus();
+        var isFocused = document.activeElement === refs.modal;
+        console.log(`modal isFocused: ${isFocused}`);
+      }, 250));
   }),
-    refs.closeModalBtn.addEventListener("click", toggleModal),
-    refs.modal.addEventListener("click", function (event) {
-      event.target.matches("[data-modal]") && toggleModal();
+    refs.closeModalBtn.addEventListener("click", event => {
+      toggleModal(),
+        setTimeout(() => {
+          refs.openModalBtn.focus();
+        }, 250);
+    }),
+    refs.modal.addEventListener("keyup", event => {
+      (event.which === 27 || event.key === "Escape") &&
+        !refs.modal.classList.contains("is-hidden") &&
+        (toggleModal(),
+        setTimeout(() => {
+          refs.openModalBtn.focus();
+        }, 250));
+    }),
+    refs.modal.addEventListener("click", event => {
+      event.target.matches("[data-modal]") &&
+        (toggleModal(),
+        setTimeout(() => {
+          refs.openModalBtn.focus();
+        }, 250));
     });
 })();

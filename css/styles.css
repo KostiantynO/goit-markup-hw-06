@@ -245,7 +245,7 @@ body {
   display: inline-block;
   max-width: 31.25rem; /* 500px */
   min-height: 2.375rem; /* 38px */
-  max-height: 3.125rem; /* 70px */
+  max-height: 3.125rem; /* 50px */
   padding-right: 1.375rem; /* 22px */
   padding-left: 1.375rem;
   text-overflow: ellipsis;
@@ -271,88 +271,18 @@ body {
 .tooltip {
   position: absolute;
   top: 100%;
-  left: 50%;
-  z-index: var(--zi-5);
 
   display: block;
-  width: max-content;
   max-width: 16rem;
   max-height: 2rem;
-
-  padding: 0.25rem;
-  margin-top: 0.25rem;
-  overflow: hidden;
-  overflow-y: auto;
-
-  font-size: 0.8rem;
-  line-height: 1.21;
-  color: var(--color-text-primary);
-  background-color: var(--color-white);
-  text-align: center;
-  word-wrap: break-word;
-
-  pointer-events: none;
-  visibility: hidden;
-  border: 1px transparent var(--color-text-secondary);
-  opacity: 0;
-
-  transition: transform var(--time) var(--cubic), opacity var(--time) var(--cubic),
-    visibility var(--time) var(--cubic);
-  transform: translate(-50%, 21%);
-}
-
-.tooltip > .small {
-  text-transform: uppercase;
-  font-size: 0.6rem;
-}
-
-:hover > .tooltip,
-:focus > .tooltip {
-  visibility: visible;
-  opacity: 1;
-  transform: translate(-50%, 4%);
-}
-
-.header-contact:hover > .tooltip,
-.header-contact:focus > .tooltip {
-  transform: translate(-50%, 0);
-}
-
-.page-footer .tooltip {
-  color: var(--color-white);
-  background: var(--color-bg-hero);
-  outline: 1px var(--color-white) solid;
-}
-
-.footer-map-pointer > .tooltip {
-  left: 100%;
-  white-space: nowrap;
-}
-
-.footer-map-pointer:hover > .tooltip,
-.footer-map-pointer:focus > .tooltip {
-  transform: translate(-55%, 0%);
-}
-
-.footer-contact > .tooltip {
-  left: 100%;
-
-  transform: translate(10%, 40%);
-}
-
-.footer-contact:hover > .tooltip,
-.footer-contact:focus > .tooltip {
-  transform: translate(7%, -40%);
-}
-
-.modal-close-btn > .tooltip {
-  left: -3%;
-  top: 121%;
 }
 
 /* Главная кнопка: фон - акцент,  цвет - белый #ffffff. + тень статическая */
 .btn--primary {
   color: var(--color-white); /* Белый #FFFFFF */
+
+  min-width: 200px;
+  min-height: 50px;
 
   background-color: var(--color-accent); /* Акцент #2196F3 */
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15); /* Тень Кнопки-героя (статическая) */
@@ -391,10 +321,10 @@ body > .skip-link {
 
   z-index: var(--zi-2);
 
-  max-width: 300px;
-  max-height: 50px;
-  padding: 8px;
-  margin-left: 8px;
+  max-width: 18.75rem; /* 300px */
+  max-height: 3.125rem; /* 50px */
+  padding: 0.5rem; /* 8px */
+  margin-left: 0.5rem;
   overflow: hidden;
 
   font-weight: bold;
@@ -416,17 +346,18 @@ body > .skip-link {
 }
 
 .page-header {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 1.5rem; /* 24px */
+  padding-bottom: 1.5rem;
 
   background-color: var(--color-white);
   border-bottom: 1px solid #ececec; /* Line - Декор линия*/
 }
 
+.btn:focus,
 .skip-link:focus,
 .page-header .links:focus,
 .page-header .nav-link:focus {
-  outline: var(--color-text-primary) solid 1px;
+  outline: none;
 }
 
 .page-header > .container {
@@ -643,8 +574,10 @@ body > .skip-link {
 .header-nav .btn--secondary:focus,
 .header-nav .btn--secondary:active {
   color: var(--color-accent);
-
   background-color: #fff;
+}
+
+.header-nav .btn--secondary:hover {
   box-shadow: none;
 }
 
@@ -740,9 +673,21 @@ main > .hero {
   background-size: cover;
 }
 
-.hero .links:focus,
-.hero .hero-btn:focus {
-  outline: var(--color-white) solid 1px;
+/* anchor */
+.btn:focus .links:focus,
+.hero-btn:focus,
+.activities .links:focus,
+.team .links:focus,
+.team .social-link:focus,
+.portfolio .links:focus,
+.page-footer .links:focus,
+.page-footer .social-link:focus,
+.page-footer .btn:focus,
+.client-link:focus,
+.clients .links:focus,
+.clients .client-link:focus {
+  outline: none;
+  box-shadow: 0 0 3px 2px rgb(33 150 243 / 50%);
 }
 
 .hero-container {
@@ -971,14 +916,6 @@ main > .activities {
   background-color: var(--color-bg-secondary);
 }
 
-.activities .links:focus,
-.team .links:focus,
-.team .social-link:focus,
-.portfolio .btn:focus,
-.portfolio .links:focus {
-  outline: 1px solid var(--color-text-primary);
-}
-
 /* team */
 .designers-list {
   display: flex;
@@ -1137,14 +1074,6 @@ main > .activities {
 /* || ---------------- START "КЛИЕНТЫ" ------------------ */
 /* ------------------------------------------------------ */
 
-.clients .links:focus {
-  outline: var(--color-text-primary) solid 1px;
-}
-
-.clients .client-link:focus {
-  outline: var(--color-text-primary) dotted 1px;
-}
-
 /* Постоянные клиенты */
 .clients-list {
   display: flex;
@@ -1211,12 +1140,6 @@ main > .activities {
   padding-top: 3.75rem;
   padding-bottom: 3.75rem;
   background-color: var(--color-bg-hero);
-}
-
-.page-footer .links:focus,
-.page-footer .social-link:focus,
-.page-footer .btn:focus {
-  outline: var(--color-white) solid 1px;
 }
 
 .page-footer > .container {
@@ -1789,8 +1712,6 @@ main > .activities {
   position: relative;
   display: flex;
   flex-direction: column;
-
-  border: 1px solid transparent;
 }
 
 .user-info > .form-field + .form-field {
@@ -1841,34 +1762,35 @@ main > .activities {
 .user-info .form-label {
   position: absolute;
   top: 50%;
-  left: 0;
 
   display: inline-flex;
   align-items: center;
   width: 100%;
+  height: 100%;
   margin-bottom: 0;
 
   pointer-events: none;
-  border: 1px solid transparent;
 
   transform: translateY(-50%);
 }
 
-.form-input:not(:placeholder-shown) + .form-label,
-.form-input:focus + .form-label {
-  transform: translate(-3%, -124%);
-}
-
-.form-input:focus ~ .svg-wrapper {
-  fill: var(--color-accent);
-}
-
 .user-info .svg-wrapper {
+  left: 0%;
   padding: 0.6875rem 0 0.6875rem 0.75rem;
 }
 
 .user-info .form-label {
+  left: 0%;
   padding: 0.75rem 0.75rem 0.75rem 2.625rem;
+}
+
+.form-input:not(:placeholder-shown) + .form-label,
+.form-input:focus + .form-label {
+  transform: translate(-2.625rem, calc(-50% - 31px));
+}
+
+.form-input:focus ~ .svg-wrapper {
+  fill: var(--color-accent);
 }
 
 /* { mr12 w18 x h18 pt=pb=11 pl12 pr340 } */
@@ -1893,6 +1815,8 @@ main > .activities {
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 0.25rem;
+
+  transition: border-color var(--time) var(--cubic);
 }
 
 .form-comment::placeholder {
@@ -1925,44 +1849,55 @@ main > .activities {
   border-radius: 0.125rem;
   border: 0.125rem solid var(--color-text-primary);
 
-  transition: background-color var(--time) var(--cubic), color var(--time) var(--cubic);
+  transition: background-color var(--time) var(--cubic), color var(--time) var(--cubic),
+    border var(--time) var(--cubic), outline-color var(--time) var(--cubic);
 }
 
 .form-input-checkbox:focus + .form-label > .custom-checkbox {
-  border: 2px solid var(--color-accent);
+  /* border-color: var(--color-accent); */
 }
 
+.form-input-checkbox:focus:not(:checked) + .form-label > .custom-checkbox {
+  box-shadow: 0 0 3px 2px rgb(33 150 243 / 50%);
+}
+
+.form-input-checkbox:focus:checked + .form-label > .custom-checkbox {
+  box-shadow: 0 0 3px 2px rgb(33 150 243 / 50%);
+}
+
+/* .form-label:hover > .custom-checkbox */
 .form-input-checkbox:checked + .form-label > .custom-checkbox {
-  color: var(--color-white);
   background-color: var(--color-accent);
-  border: 2px solid transparent;
+  border-color: transparent;
 }
 
 /* .form-input-checkbox > icon { w11.4 h8.4 bg#fff brd0.2px solid #fff; } */
 .custom-checkbox > .form-svg {
-  fill: currentColor;
-  opacity: 0;
-  visibility: hidden;
   color: var(--color-white);
+  pointer-events: none;
 
+  visibility: hidden;
+
+  opacity: 0;
+  fill: currentColor;
   transition: visibility var(--time) var(--cubic), opacity var(--time) var(--cubic);
 }
 
 .form-input-checkbox:checked + .form-label > .custom-checkbox > .form-svg {
-  opacity: 1;
+  pointer-events: auto;
   visibility: visible;
+  opacity: 1;
 }
 
 /* .form-label-checkbox {w346 x h14 fz12 lh14 lsp0.03em c#757575 } */
+/* 12 / 480  = 0.025
+   12 / 768  = 0.015625
+   14 / 1600 = 0.00875 */
+
+/* 14 / 480  = 0.029167
+   14 / 768  = 1.823vw
+   24 / 1600 = 0.015 */
 .policy > .form-label {
-  /* 12 / 480 = 0.025
- 12 / 768 = 0.015625
- 14 / 1600 = 0.00875 */
-
-  /* 14 / 480 = 0.029167
- 14 / 768 = 1.823vw
- 24 / 1600 = 0.015 */
-
   font-size: clamp(12px, 2.5vw, 14px);
   line-height: clamp(14px, 2.9vw, 24px);
 
